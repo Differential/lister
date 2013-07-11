@@ -5,9 +5,16 @@
 <body>
   <header>
     <div class="container">
-      <div class="login">
-        {{loginButtons}}
-      </div>
+      <nav>
+        <ul>
+          <li><a href="/lists/new"><i class="icon-plus"></i></a></li>
+          <li> 
+            <div class="login">
+              {{loginButtons}}
+            </div>
+          </li>
+        </ul>
+      </nav>
     </div>
   </header>
   {{renderPage}}
