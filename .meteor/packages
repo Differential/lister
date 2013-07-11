@@ -11,3 +11,4 @@ coffeescript
 accounts-ui
 accounts-password
 less
+router
