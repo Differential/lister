@@ -1,11 +1,19 @@
 <template name='listsIndex'>
-  <h1>My lists</h1>
+  <div class="view-lists">
+    <div class="container">
+      <div class="row-fluid">
+        <div class="span6 offset3">
+          <h1>My lists</h1>
 
-  <ul>
-  {{#each lists}}
-    <li>{{> listItem}}</li>
-  {{/each}}
-  </ul>
+          <ul>
+          {{#each lists}}
+            <li>{{> listItem}}</li>
+          {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
   {{> newList}}
 </template>
