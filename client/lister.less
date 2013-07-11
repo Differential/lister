@@ -19,6 +19,20 @@ header {
   }
 }
 
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 300;
+  height: 25px;
+  box-shadow: none;
+  -webkit-appearance: none;
+
+  &:focus, &:active {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
 .home {
   h1 {
     text-align: center;
@@ -33,4 +47,8 @@ header {
     font-weight: 100;
     margin-top: 20px;
   }
+}
+
+.new-list {
+  text-align: center;
 }

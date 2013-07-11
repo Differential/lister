@@ -1,0 +1,35 @@
+// MIXINS
+
+.border-box() {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.header() {
+  font-family: @bodyFont;
+  font-weight: 700;
+  color: @darkText;
+}
+
+.transitionEase(@property: all 0.2s) {
+  -webkit-transition: @property ease;
+  -moz-transition: @property ease;
+  -o-transition: @property ease;
+  transition: @property ease;
+}
+
+.box-shadow(@content) {
+  -webkit-box-shadow: @content;
+  -moz-box-shadow: @content;
+  box-shadow: @content;
+}
+
+.gradientBackground(@topColor; @bottomColor) {
+  background: -ms-linear-gradient(top, @topColor 0%, @bottomColor 100%);
+  background: -moz-linear-gradient(top, @topColor 0%, @bottomColor 100%);
+  background: -o-linear-gradient(top, @topColor 0%, @bottomColor 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, @topColor), color-stop(1, @bottomColor));
+  background: -webkit-linear-gradient(top, @topColor 0%, @bottomColor 100%);
+  background: linear-gradient(to bottom, @topColor 0%, @bottomColor 100%);
+}
