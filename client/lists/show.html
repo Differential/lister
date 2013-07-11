@@ -1,3 +1,13 @@
 <template name='showList'>
   <h2>{{list.name}}</h2>
+  <ul>
+  {{#each list.items}}
+    {{> item}}
+  {{/each}}
+  </ul>
+  <input type="input" id="newItem">
+</template>
+
+<template name='item'>
+  <li>{{this}}</li>
 </template>

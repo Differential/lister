@@ -7,3 +7,4 @@ Template.newList.events
       name: name.val()
     )
     name.val ''
+    Meteor.Router.to('/lists')
