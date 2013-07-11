@@ -1,4 +1,11 @@
 <template name='listsIndex'>
   <h1>My lists</h1>
+
+  <ul>
+  {{#each lists}}
+    <li>{{> listItem}}</li>
+  {{/each}}
+  </ul>
+
   {{> newList}}
 </template>
