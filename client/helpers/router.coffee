@@ -3,4 +3,6 @@ Meteor.Router.add
 
   '/lists': -> 'listsIndex'
 
-  '/lists/new': -> 'newList'
+  '/lists/:id': (id) ->
+    Session.set('currentList', id)
+    'showList'
