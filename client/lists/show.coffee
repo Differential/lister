@@ -1,10 +1,16 @@
 Template.showList.helpers
   list: ->
-    Lists.findOne(Session.get('currentList'))
+    Lists.findOne(Session.get('listId'))
+
+  items: ->
+    Items.find(listId: Session.get('listId'))
 
 Template.showList.events
-  'keypress input#newItem': (e) ->
-    if e.which == 13
-      text = e.target.value
-      Lists.update(Session.get('currentList'), $push: {items: text})
-      $(e.target).val('')
+  'submit .add-item': ->
+      event.preventDefault()
+      text = $('#newItem')
+      Items.insert(
+        listId: Session.get('listId'),
+        text: text.val()
+      )
+      text.val ''

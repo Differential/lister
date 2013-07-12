@@ -6,7 +6,7 @@
           <h1>{{list.name}}</h1>
 
           <ul>
-          {{#each list.items}}
+          {{#each items}}
             {{> item}}
           {{/each}}
           </ul>
@@ -21,6 +21,5 @@
 </template>
 
 <template name='item'>
-  <li>{{this}}</li>
+  <li>{{text}}</li>
 </template>
-
