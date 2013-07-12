@@ -1,13 +1,26 @@
 <template name='showList'>
-  <h2>{{list.name}}</h2>
-  <ul>
-  {{#each list.items}}
-    {{> item}}
-  {{/each}}
-  </ul>
-  <input type="input" id="newItem">
+  <div class="view-lists list">
+    <div class="container">
+      <div class="row-fluid">
+        <div class="span6 offset3">
+          <h1>{{list.name}}</h1>
+
+          <ul>
+          {{#each list.items}}
+            {{> item}}
+          {{/each}}
+          </ul>
+
+          <form class="form-inline add-item">
+            <input type="text" class="span6" id="newItem">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <template name='item'>
   <li>{{this}}</li>
 </template>
+
