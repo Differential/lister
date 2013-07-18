@@ -6,3 +6,5 @@ Deps.autorun ->
   Meteor.subscribe 'items', Session.get('listId'),
     onReady: ->
       Session.set('itemsReady', true)
+    
+  Meteor.subscribe 'recentItems'

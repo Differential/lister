@@ -3,6 +3,12 @@
     <div class="container">
       <h1>Lister</h1>
       <p>Easy public shareable lists.</p>
+      
+      <ul>
+        {{#each items}}
+         {{> homeItem}}
+        {{/each}}
+      </ul>
     </div>
   </div>
 </template>

@@ -8,6 +8,7 @@ Template.newList.events
       username: Meteor.user().username
       name: name.val()
       slug: (name.val() || '').replace(/\W+/g, '-').toLowerCase()
+      createdAt: new Date()
     )
     name.val ''
     Meteor.Router.to('/lists')

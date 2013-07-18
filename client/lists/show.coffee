@@ -15,5 +15,9 @@ Template.showList.events
       Items.insert(
         listId: Session.get('listId'),
         text: text.val()
+        createdAt: new Date()
+        username: Meteor.user().username
+        listSlug: Lists.findOne(Session.get('listId')).slug
+        listName: Lists.findOne(Session.get('listId')).name
       )
       text.val ''
