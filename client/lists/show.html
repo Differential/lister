@@ -4,16 +4,19 @@
       <div class="row-fluid">
         <div class="span6 offset3">
           <h1>{{list.name}}</h1>
-
-          <ul>
-          {{#each items}}
-            {{> item}}
-          {{/each}}
-          </ul>
-
-          <form class="form-inline add-item">
-            <input type="text" class="span6" id="newItem">
-          </form>
+          {{#if itemsReady}}
+            <ul>
+              {{#each items}}
+                {{> item}}
+              {{/each}}
+            </ul>
+  
+            {{#if currentUser}}
+              <form class="form-inline add-item">
+                <input type="text" class="span6" id="newItem">
+              </form>
+            {{/if}}
+          {{/if}}
         </div>
       </div>
     </div>

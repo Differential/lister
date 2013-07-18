@@ -4,6 +4,9 @@ Template.showList.helpers
 
   items: ->
     Items.find(listId: Session.get('listId'))
+  
+  itemsReady: ->
+    Session.get('itemsReady')
 
 Template.showList.events
   'submit .add-item': ->

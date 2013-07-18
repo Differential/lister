@@ -8,12 +8,14 @@
       <div class="login">
         {{loginButtons align="right"}}
       </div>
-      <nav>
-        <ul>
-          <li><a href="/new"><i class="icon-plus"></i></a></li> 
-          <li><a href="/lists"><i class="icon-list"></i></a></li> 
-        </ul>
-      </nav>
+      {{#if currentUser}}
+        <nav>
+          <ul>
+            <li><a href="/new"><i class="icon-plus"></i></a></li> 
+            <li><a href="/lists"><i class="icon-list"></i></a></li> 
+          </ul>
+        </nav>
+      {{/if}}
     </div>
   </header>
   {{renderPage}}
