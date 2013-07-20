@@ -13,6 +13,7 @@ Template.showList.events
       event.preventDefault()
       text = $('#newItem')
       Items.insert(
+        userId: Meteor.userId()
         listId: Session.get('listId'),
         text: text.val()
         createdAt: new Date()
