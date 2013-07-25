@@ -8,5 +8,5 @@ Items.allow(
     true
 
   remove: (userId, item) ->
-    item.userId == userId
+    true
 )
