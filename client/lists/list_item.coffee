@@ -1,6 +1,6 @@
 Template.item.helpers
   'isListOwner': ->
-    Meteor.user().username == Session.get('username')
+    Meteor.user() && Meteor.user().username == Session.get('username')
 
 Template.item.events
   'click .delete': ->
