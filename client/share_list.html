@@ -1,28 +1,18 @@
 <template name="shareLists">
-  <li class="share_facebook">
-    <a href="#" 
+  <div class='btn-group'>
+    <a href="#" class='btn'
       onclick="
         window.open(
           'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
           'facebook-share-dialog', 
           'width=626,height=436'); 
-        return false;">
-      Share on Facebook
-    </a>
-  </li>
-  
-  <li class="share_twitter">
-    <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" target="_blank">Tweet</a>
-    
+        return false;"><icon class='icon-facebook'></icon></a>
+    <a href="https://twitter.com/share" class="btn twitter-share-button" data-count="none" target="_blank"><icon class='icon-twitter'></icon></a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
             if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
             fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
     </script>
-  </li>
-  
-  <li class="share_gplus">
-    <a href="https://plus.google.com/share?url=lister.io/{{username}}/{{list.slug}}" onclick="javascript:window.open(this.href,
-  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">Share on Google +</a>
-  </li>
-  
+    <a class='btn' href="https://plus.google.com/share?url=lister.io/{{username}}/{{list.slug}}" onclick="javascript:window.open(this.href,
+      '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><icon class='icon-google-plus'></icon></a>
+  </div>
 </template>

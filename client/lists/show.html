@@ -5,23 +5,26 @@
         <div class="span6 offset3">
           <h1>{{list.name}}</h1>
           {{#if itemsReady}}
-            <ul>
+            <ul class='list'>
               {{#each items}}
                 {{> item}}
               {{/each}}
             </ul>
-  
+
             {{#if currentUser}}
               <form class="form-inline add-item">
-                <input type="text" class="span6" id="newItem">
+                <div class='controls control-row'>
+                  <textarea type="text" class="span12" placeholder='text' id="text" />
+                  <input type="text" class="span10" placeholder='url (optional)' id="url">
+                  <button type='submit' class='btn span2'>Add</button>
+                </div>
               </form>
             {{/if}}
           {{/if}}
-          
-          <h3 class="share-list">Share This List</h3>
-          <ul class="share">
+
+          <div class="share">
             {{> shareLists}}
-          </ul>
+          </div>
         </div>
       </div>
     </div>

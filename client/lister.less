@@ -1,3 +1,5 @@
+@import 'variables';
+
 body {
   background: #45C4A5;
   color: #fff;
@@ -17,6 +19,9 @@ header {
     font-size: 20px;
     font-weight: 200;
     text-decoration: none !important;
+    @media (max-width: 480px) {
+      font-size: 1em;
+    }
 
     &:hover {
       color: rgba(255,255,255,0.7)
@@ -29,13 +34,19 @@ header {
     ul {
 
       li {
-        display: inline-block;
+        display: inline;
 
         a {
           margin-right: 20px;
+          @media (max-width: 480px) {
+            font-size: 1em;
+          }
 
           i {
             font-size: 30px;
+            @media (max-width: 480px) {
+              font-size: 1.5em;
+            }
           }
         }
       }
@@ -44,7 +55,10 @@ header {
 
   .login {
     float: right;
-    margin-top: 3px;
+    margin-top: 9px;
+    @media (max-width: 480px) {
+      margin-top: 3px;
+    }
   }
 }
 
@@ -76,13 +90,12 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
     font-weight: 100;
     margin-top: 15px;
   }
-  
+
   ul {
     text-align:center;
     list-style: none;
     margin-top: 40px;
   }
-  
 }
 
 h3.share-list {
@@ -102,15 +115,14 @@ h3.share-list {
     margin-bottom: 0px;
   }
 
-  ul  {
+  ul.list {
     margin-left: 0px;
     margin-bottom: 50px;
     text-align: center;
-    
+
     li {
       font-size: 24px;
       font-weight: 600;
-      text-transform: uppercase;
       padding: 15px 0;
       list-style: none;
       border-bottom: 1px dashed rgba(255,255,255,0.4);
@@ -128,10 +140,51 @@ h3.share-list {
   }
 
   form.add-item {
-    text-align: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    input {
+      margin-bottom: 10px;
+    }
+    textarea {
+      height: 60px;
+      margin-bottom: 10px;
+    }
+    button {
+      line-height: 20px;
+      margin-left: 0px;
+      float: right;
+      @media (max-width: 480px) {
+        float: none;
+      }
+    }
   }
 }
 
 span.when-added {
   opacity: 0.5;
+}
+
+div.share {
+  text-align: center;
+  margin: 40px 0;
+  a {
+    background: rgba(255, 255, 255, 0.15);
+  }
+  a:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  .btn-group {
+    border: 0px;
+    display: block;
+  }
+  .btn {
+    border: 0px;
+    line-height: 30px;
+    font-size: 22px;
+    width: 30px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .btn-group > .btn + .btn {
+    margin-left: 0px;
+  }
 }

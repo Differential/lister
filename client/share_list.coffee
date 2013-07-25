@@ -1,6 +1,6 @@
 Template.shareLists.helpers
   username: ->
-    Meteor.user().username
-    
+    Session.get('username')
+
   list: ->
     Lists.findOne(Session.get('listId'))

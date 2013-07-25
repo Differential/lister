@@ -1,3 +1,7 @@
 <template name='item'>
-  <li>{{text}}</li>
+  {{#if url}}
+    <li><a href="{{url}}">{{text}}</a></li>
+  {{else}}
+    <li>{{text}}</li>
+  {{/if}}
 </template>
