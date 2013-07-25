@@ -1,7 +1,17 @@
 <template name='item'>
   {{#if url}}
-    <li><a href="{{url}}">{{text}}</a></li>
+    <li>
+      <a href="{{url}}">{{text}}</a>
+      {{#if isListOwner}}
+        <a class='delete'><i class='icon-remove'></i></a>
+      {{/if}}
+    </li>
   {{else}}
-    <li>{{text}}</li>
+    <li>
+      {{text}}
+      {{#if isListOwner}}
+        <a class='delete'><i class='icon-remove'></i></a>
+      {{/if}}
+    </li>
   {{/if}}
 </template>

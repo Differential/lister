@@ -16,6 +16,7 @@ Meteor.Router.add
   '/:username/:slug': (username, slug) ->
     Session.set('username', username)
     Session.set('itemsReady', false)
-    Meteor.call 'findListId', username, slug, (err, listId)->
+    Meteor.call 'findListId', username, slug, (err, listId) ->
       Session.set('listId', listId)
+      Session.set('itemsReady', true)
     'showList'
