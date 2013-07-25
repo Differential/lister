@@ -8,6 +8,9 @@ Template.showList.helpers
   itemsReady: ->
     Session.get('itemsReady')
 
+  isOwner: ->
+    Lists.findOne(Session.get('listId')).userId == Meteor.userId()
+
 Template.showList.events
   'submit .add-item': ->
       event.preventDefault()
