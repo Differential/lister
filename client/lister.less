@@ -199,3 +199,41 @@ div.share {
     }
   }
 }
+
+footer {
+  padding: 40px 0;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    float: right;
+
+    li {
+      list-style: none;
+      display: inline;
+      padding-left: 20px;
+      font-size: 16px;
+
+      a {
+        color: #fff;
+        font-weight: 200;
+        border-bottom: none;
+        text-decoration: none;
+        @media (max-width: 480px) {
+          font-size: 0.8em;
+        }
+
+        &:hover {
+          text-decoration: none;
+          color: rgba(255,255,255,0.7)
+        }
+      }
+
+      img {
+        width: 18px;
+        margin-top: -5px;
+        margin-left: 3px;
+      }
+    }
+  }
+}
