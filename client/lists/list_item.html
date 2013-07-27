@@ -1,17 +1,14 @@
 <template name='item'>
-  {{#if url}}
-    <li>
+  <li>
+    {{#if url}}
       <a href="{{url}}">{{text}}</a>
-      {{#if isListOwner}}
-        <a class='delete'><i class='icon-remove'></i></a>
-      {{/if}}
-    </li>
-  {{else}}
-    <li>
+    {{else}}
       {{text}}
-      {{#if isListOwner}}
-        <a class='delete'><i class='icon-remove'></i></a>
-      {{/if}}
-    </li>
-  {{/if}}
+    {{/if}}
+    {{#if isListOwner}}
+      <a class='delete'><i class='icon-remove'></i></a>
+    {{else}}
+      <a class='vote {{voteClass}}'><i class='icon-heart muted'></i></a>
+    {{/if}}
+  </li>
 </template>

@@ -3,7 +3,7 @@ Template.showList.helpers
     Lists.findOne(Session.get('listId'))
 
   items: ->
-    Items.find(listId: Session.get('listId'))
+    Items.find({listId: Session.get('listId')}, {sort: {position: -1, score: -1}})
 
   itemsReady: ->
     Session.get('itemsReady')
@@ -20,6 +20,10 @@ Template.showList.events
         listId: Session.get('listId'),
         text: $('#text').val()
         url: $('#url').val()
+        upvoters: []
+        downvoters: []
+        points: 0
+        position: 0
         createdAt: new Date()
         username: Meteor.user().username
         listSlug: Lists.findOne(Session.get('listId')).slug
