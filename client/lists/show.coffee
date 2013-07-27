@@ -13,7 +13,8 @@ Template.showList.helpers
     Meteor.user() && list && (list.userId == Meteor.userId() || list.open)
 
   couldAdd: ->
-    !Meteor.user() && Lists.findOne(Session.get('listId')).open
+    list = Lists.findOne(Session.get('listId'))
+    !Meteor.user() && list && list.open
 
 Template.showList.events
   'submit .add-item': ->

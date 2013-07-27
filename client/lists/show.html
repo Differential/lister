@@ -21,11 +21,15 @@
                 </form>
               {{/if}}
 
-              {{#if couldAdd}}
+              {{#unless currentuser}}
                 <div class='open-list-message'>
-                  If you sign in, you could add to this list.
+                  {{#if couldAdd}}
+                    If you sign in, you can vote up your favorites, and add to the list.
+                  {{else}}
+                    If you sign in, you can vote up your favorites.
+                  {{/if}}
                 </div>
-              {{/if}}
+              {{/unless}}
 
             <div class="share">
               {{> shareLists}}
