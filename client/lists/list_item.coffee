@@ -1,6 +1,9 @@
 Template.item.helpers
-  'isListOwner': ->
-    Meteor.user() && Meteor.user().username == Session.get('username')
+  'isOwner': ->
+    Meteor.user() && (@.userId == Meteor.userId() || @.username == Meteor.user().username)
+
+  'canVote': ->
+    Meteor.user() && @.userId != Meteor.userId()
 
   'voteClass': ->
     userId = Meteor.userId()

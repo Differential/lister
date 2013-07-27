@@ -5,9 +5,10 @@
     {{else}}
       {{text}}
     {{/if}}
-    {{#if isListOwner}}
+    {{#if isOwner}}
       <a class='delete'><i class='icon-remove'></i></a>
-    {{else}}
+    {{/if}}
+    {{#if canVote}}
       <a class='vote {{voteClass}}'><i class='icon-heart muted'></i></a>
     {{/if}}
   </li>

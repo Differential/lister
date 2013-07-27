@@ -8,9 +8,12 @@ Template.showList.helpers
   itemsReady: ->
     Session.get('itemsReady')
 
-  isOwner: ->
+  canAdd: ->
     list = Lists.findOne(Session.get('listId'))
-    list && list.userId == Meteor.userId()
+    Meteor.user() && list && (list.userId == Meteor.userId() || list.open)
+
+  couldAdd: ->
+    Lists.findOne(Session.get('listId')).open
 
 Template.showList.events
   'submit .add-item': ->
@@ -25,7 +28,7 @@ Template.showList.events
         points: 0
         position: 0
         createdAt: new Date()
-        username: Meteor.user().username
+        username: Lists.findOne(Session.get('listId')).username
         listSlug: Lists.findOne(Session.get('listId')).slug
         listName: Lists.findOne(Session.get('listId')).name
       )

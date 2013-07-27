@@ -11,7 +11,7 @@
                 {{/each}}
               </ul>
 
-              {{#if isOwner}}
+              {{#if canAdd}}
                 <form class="form-inline add-item">
                   <div class='controls control-row'>
                     <textarea type="text" class="span12" placeholder='text' id="text" />
@@ -19,6 +19,12 @@
                     <button type='submit' class='btn span2'>Add</button>
                   </div>
                 </form>
+              {{/if}}
+
+              {{#if couldAdd}}
+                <div class='open-list-message'>
+                  If you sign in, you could add to this list.
+                </div>
               {{/if}}
 
             <div class="share">
