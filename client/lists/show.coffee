@@ -19,11 +19,17 @@ Template.showList.helpers
 Template.showList.events
   'submit .add-item': ->
       event.preventDefault()
+      url = $('#url')
+      if url.val().match(/^http/) || url.val().match(/^https/)
+        urlValue = url.val()
+      else
+        urlValue = 'http://' + url.val()
+
       Items.insert(
         userId: Meteor.userId()
         listId: Session.get('listId'),
         text: $('#text').val()
-        url: $('#url').val()
+        url: urlValue
         upvoters: []
         downvoters: []
         points: 0
