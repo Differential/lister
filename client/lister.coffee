@@ -8,3 +8,7 @@ Deps.autorun ->
       Session.set('itemsReady', true)
 
   Meteor.subscribe 'recentItems'
+
+Meteor.startup ->
+  color = 'rgb(' + (Math.floor(Math.random() * 128)) + ',' + (Math.floor(Math.random() * 128)) + ',' + (Math.floor(Math.random() * 128)) + ')'
+  $('body').css('background-color', color)
