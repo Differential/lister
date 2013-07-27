@@ -1,6 +1,6 @@
 Template.listsIndex.helpers
   lists: ->
-    Lists.find()
+    Lists.find(userId: Meteor.userId())
 
 Template.listsIndex.events
   'click .addList': ->
