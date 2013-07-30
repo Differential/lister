@@ -40,4 +40,5 @@ Template.showList.events
         listName: Lists.findOne(Session.get('listId')).name
       )
       $('#text').val ''
+      $('#text').focus()
       $('#url').val ''
