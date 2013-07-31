@@ -27,3 +27,5 @@ Meteor.Router.add
        'loading'
      else if Meteor.user()
        'api'
+     else
+       'home'
