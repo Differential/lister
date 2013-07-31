@@ -4,7 +4,8 @@
     "basePackages": {
       "router": {},
       "phantomjs": {},
-      "HTML5-History-API": {}
+      "HTML5-History-API": {},
+      "external-file-loader": {}
     },
     "packages": {
       "router": {
@@ -21,6 +22,11 @@
         "git": "https://github.com/tmeasday/meteor-HTML5-History-API.git",
         "tag": "v4.0.0",
         "commit": "dc4965f1424cfca625ec3fbea17eace03f8e32c5"
+      },
+      "external-file-loader": {
+        "git": "https://github.com/davidd8/meteor-external-file-loader.git",
+        "tag": "v0.1.2",
+        "commit": "02ecaffb33b68a7ccf6d8b64693117d3fc19ae6b"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",

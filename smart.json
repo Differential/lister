@@ -2,6 +2,7 @@
   "packages": {
     "router": {},
     "phantomjs": {},
-    "HTML5-History-API": {}
+    "HTML5-History-API": {},
+    "external-file-loader": {}
   }
 }
