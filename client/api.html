@@ -1,0 +1,18 @@
+<template name='api'>
+  <div class="new-list">
+    <div class="container">
+      <h1>API Key</h1>
+
+      <form class="form-inline">
+        <input id="copy-value" type="text" class="span4" name="key" readonly value="{{key}}">
+        <button id="copy-trigger" data-clipboard-target="copy-value" class="btn btnWhite" data-toggle="tooltip" data-placement="bottom" title="Copied">
+          <i class="icon-copy"></i>
+        </button>
+        <button class="btn btnWhite">Create New Key</button>
+      </form>
+      <p>
+        <small>Creating a new key will invalidate any existing keys.</small>
+      </p>
+    </div>
+  </div>
+</template>

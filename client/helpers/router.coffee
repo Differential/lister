@@ -21,3 +21,9 @@ Meteor.Router.add
       Session.set('listId', listId)
 
     'showList'
+
+  '/api': ->
+     if Meteor.loggingIn()
+       'loading'
+     else if Meteor.user()
+       'api'

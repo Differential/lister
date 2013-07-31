@@ -1,5 +1,12 @@
 Meteor.startup ->
   Meteor.methods
+   updateApiKey: ->
+     key = Random.hexString(32)
+     Meteor.users.update(Meteor.userId(), {
+       $set: { 'profile.apiKey': key }
+     })
+     key
+
    findListId: (username, slug) ->
      Lists.findOne(
        username: username
