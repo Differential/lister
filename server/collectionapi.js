@@ -238,7 +238,7 @@ CollectionAPI._requestListener.prototype._putRequest = function() {
         if(!self._beforeHandling('PUT', self._requestPath.collectionId, self._requestCollection.findOne(self._requestPath.collectionId), obj, self._requestAuthToken)) {
           return self._rejectedResponse("Could not put that object.");
         }
-        self._requestCollection.update(self._requestPath.collectionId, obj);
+        self._requestCollection.update(self._requestPath.collectionId, { $set: obj });
       } catch (e) {
         return self._internalServerErrorResponse(e);
       }
