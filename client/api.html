@@ -18,12 +18,18 @@
   <div class="container">
     <div class="row">
       <div class="span6 offset3">
-        <h3>Example</h3>
+        <h3>Examples</h3>
         <p>
-          <code>http://lister.io/api/v1/lists?auth-token={{key}}</code><br>
+          Get all lists. <a href="http://lister.io/api/v1/lists?auth-token={{key}}" target="_blank">Try it now!</a><br>
+          <code class="full">http://lister.io/api/v1/lists?auth-token={{key}}</code>
         </p>
-        <p class="center">
-          <a href="http://lister.io/api/v1/lists?auth-token={{key}}" target="_blank">Try it now!</a>
+        <p>
+          Create a new list.
+          <code class="full">$ curl -H "X-Auth-Token: {{key}}" -X POST -d '{"name": "New List Name"}' http://lister.io/api/v1/lists</code>
+        </p>
+        <p>
+          Update a list.
+          <code class="full">$ curl -H "X-Auth-Token: {{key}}" -X PUT -d '{"name": "Updated List Name"}' http://lister.io/api/v1/lists/kMAw2vhHTF25pdtZf</code>
         </p>
         <h3>Lists</h3>
         <table class="table">
