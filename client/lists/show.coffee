@@ -20,10 +20,14 @@ Template.showList.events
   'submit .add-item': ->
       event.preventDefault()
       url = $('#url')
-      if url.val().match(/^http/) || url.val().match(/^https/)
-        urlValue = url.val()
-      else
-        urlValue = 'http://' + url.val()
+      urlValue =
+        if url.val().match(/^http/) || url.val().match(/^https/)
+          url.val()
+        else
+          if url.val() == ''
+            url.val()
+          else
+            'http://' + url.val()
 
       Items.insert(
         userId: Meteor.userId()
