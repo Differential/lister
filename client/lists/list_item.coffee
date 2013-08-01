@@ -1,4 +1,7 @@
 Template.item.helpers
+  'hasUrl': ->
+    @.url != '' and !@.url.match(/^http:\/\/$/)
+
   'isOwner': ->
     Meteor.user() && (@.userId == Meteor.userId() || @.username == Meteor.user().username)
 
