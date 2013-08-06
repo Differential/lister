@@ -1,6 +1,6 @@
 Template.listItem.helpers
   username: ->
-    Meteor.user().username
+    @username
 
 Template.listItem.events
   'click .delete': ->
