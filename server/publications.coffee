@@ -3,15 +3,15 @@ Meteor.publish 'lists', () ->
 
 Meteor.publish 'contributedLists', () ->
   items = Items.find(
-    {userId: Meteor.userId()}
+    {userId: @userId}
   ).fetch()
 
   listIds = _.uniq(_.pluck(items, 'listId'))
 
   Lists.find(
-    {_id: { $in: listIds }},
-    {userId: { $ne: Meteor.userId() }}
+    {_id: { $in: listIds }}
   )
+
 
  Meteor.publish 'currentList', (listId) ->
   Lists.find(_id: listId)
