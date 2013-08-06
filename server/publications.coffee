@@ -1,6 +1,18 @@
 Meteor.publish 'lists', () ->
   Lists.find(userId: @userId)
 
+Meteor.publish 'contributedLists', () ->
+  items = Items.find(
+    {userId: Meteor.userId()}
+  ).fetch()
+
+  listIds = _.uniq(_.pluck(items, 'listId'))
+
+  Lists.find(
+    {_id: { $in: listIds }},
+    {userId: { $ne: Meteor.userId() }}
+  )
+
  Meteor.publish 'currentList', (listId) ->
   Lists.find(_id: listId)
 

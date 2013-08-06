@@ -1,4 +1,5 @@
 Meteor.subscribe 'lists'
+Meteor.subscribe 'contributedLists'
 
 Deps.autorun ->
   Meteor.subscribe 'currentList', Session.get('listId')
