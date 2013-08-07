@@ -21,6 +21,9 @@ Meteor.publish 'items', (listId) ->
 
 Meteor.publish 'recentItems', (query) ->
   if query
-    Items.find({text: {$regex: query, $options: 'i'}}, {limit: 10})
+    Items.find({$or: [
+        {text: {$regex: query, $options: 'i'}},
+        {listName: {$regex: query, $options: 'i'}}
+      ]}, {limit: 10})
   else
     Items.find({}, {sort: {createdAt: -1}, limit: 10})
