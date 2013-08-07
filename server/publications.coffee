@@ -19,5 +19,8 @@ Meteor.publish 'contributedLists', () ->
 Meteor.publish 'items', (listId) ->
   Items.find(listId: listId)
 
-Meteor.publish 'recentItems', () ->
-  Items.find({}, {sort: {createdAt: -1}, limit: 10})
+Meteor.publish 'recentItems', (query) ->
+  if query
+    Items.find({text: {$regex: query, $options: 'i'}}, {limit: 10})
+  else
+    Items.find({}, {sort: {createdAt: -1}, limit: 10})

@@ -8,7 +8,7 @@ Deps.autorun ->
     onReady: ->
       Session.set('itemsReady', true)
 
-  Meteor.subscribe 'recentItems'
+  Meteor.subscribe 'recentItems', Session.get('query')
 
 Meteor.startup ->
   color = 'rgb(' + (Math.floor(Math.random() * 128)) + ',' + (Math.floor(Math.random() * 128)) + ',' + (Math.floor(Math.random() * 128)) + ')'
