@@ -3,9 +3,9 @@
     <div class="container">
       <h1>Lister</h1>
       <p>Easy public shareable lists.</p>
-      <form id="searchItem">
-        <input type="text" id="searchItems" value="{{query}}" placeholder="Search">
-      </form>
+      <div class='search'>
+        <input type="text" id="query" value="{{query}}" placeholder="Search">
+      </div>
       <ul class='home-list'>
         {{#each items}}
          {{> homeItem}}

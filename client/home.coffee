@@ -6,7 +6,7 @@ Template.home.helpers
     Session.get('query')
 
 Template.home.events
-  'submit #searchItem': ->
+  'keyup #query': ->
     event.preventDefault()
-    query = $(event.target).find('#searchItems').val()
+    query = $(event.target).val()
     Session.set('query', query)

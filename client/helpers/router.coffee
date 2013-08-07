@@ -1,6 +1,7 @@
 Meteor.Router.add
   '/': ->
     Session.set('listId', null)
+    Session.set('query', '')
     'home'
 
   '/lists': -> 'listsIndex'
