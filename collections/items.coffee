@@ -2,7 +2,9 @@
 
 Items.allow(
   insert: (userId, item) ->
-    userId
+    list = Lists.findOne(item.listId)
+
+    userId && list && (list.userId == userId || list.open)
 
   update: (userId, item) ->
     true

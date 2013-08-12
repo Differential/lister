@@ -5,7 +5,7 @@ Lists.allow(
     userId
 
   update: (userId, list) ->
-    true
+    list.userId == userId
 
   remove: (userId, list) ->
     list.userId == userId
