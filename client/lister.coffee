@@ -11,5 +11,10 @@ Deps.autorun ->
   Meteor.subscribe 'recentItems', Session.get('query')
 
 Meteor.startup ->
-  color = '#' + Math.floor(Math.random() * 16777215).toString(16)
+  if Meteor.user().profile && Meteor.user().profile.color
+    color =  Meteor.user().profile.color
+  else
+    color = '#' + Math.floor(Math.random() * 6777215).toString(16)
+
+  Session.set('color', color)
   $('body').css('background-color', color)

@@ -12,7 +12,6 @@ Meteor.publish 'contributedLists', () ->
     {_id: { $in: listIds }}
   )
 
-
  Meteor.publish 'currentList', (listId) ->
   Lists.find(_id: listId)
 

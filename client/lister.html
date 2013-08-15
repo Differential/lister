@@ -13,24 +13,10 @@
         {{loginButtons align="right"}}
       </div>
       {{#if currentUser}}
-        <nav>
-          <ul>
-            <li><a href="/new"><i class="icon-plus"></i> add list</a></li> 
-            <li><a href="/lists"><i class="icon-list"></i> my lists</a></li> 
-          </ul>
-        </nav>
+        {{> nav}}
       {{/if}}
     </div>
   </header>
   {{renderPage}}
-  <footer>
-    <div class="navbar navbar-fixed-bottom">
-      <div class="container">
-        <ul>
-          <li><a href="http://lister.io/lister/lister-bugs-feature-requests">report bugs & request features</a></li>
-          <li><a href="http://differential.io">Made by <img src="/di.png"/> in Cincinnati</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
+  {{> footer}}
 </body>
