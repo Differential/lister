@@ -1,29 +1,39 @@
 <template name='listsIndex'>
   <div class="view-lists list">
     <div class="container">
-      <div class="row-fluid">
-        <div class="span6 offset3">
-          <h1>My lists</h1>
-
-          <ul class="list">
-          {{#each lists}}
-            <li class="list-item">{{> listItem}}</li>
-          {{/each}}
-          </ul>
-        </div>
-      </div>
 
       <div class="row-fluid">
         <div class="span6 offset3">
-          <h1>Lists to which I've contributed</h1>
+          {{#if hasLists}}
+            <h1>My lists</h1>
 
-          <ul class="list">
-          {{#each contributedLists}}
-            <li class="list-item">{{> listItem}}</li>
-          {{/each}}
-          </ul>
+            <ul class="list">
+            {{#each lists}}
+              <li class="list-item">{{> listItem}}</li>
+            {{/each}}
+            </ul>
+          {{else}}
+            <div class='add-first-list'>
+              <a href='/new'>Add your first list</a>
+              <p>Seriously, it's super fun.</p>
+            </div>
+          {{/if}}
         </div>
       </div>
+
+      {{#if hasContributedToLists}}
+        <div class="row-fluid">
+          <div class="span6 offset3">
+            <h1>Lists to which I've contributed</h1>
+
+            <ul class="list">
+            {{#each contributedLists}}
+              <li class="list-item">{{> listItem}}</li>
+            {{/each}}
+            </ul>
+          </div>
+        </div>
+      {{/if}}
     </div>
   </div>
 </template>
