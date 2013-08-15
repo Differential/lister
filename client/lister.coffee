@@ -11,5 +11,5 @@ Deps.autorun ->
   Meteor.subscribe 'recentItems', Session.get('query')
 
 Meteor.startup ->
-  color = 'rgb(' + (Math.floor(Math.random() * 128)) + ',' + (Math.floor(Math.random() * 128)) + ',' + (Math.floor(Math.random() * 128)) + ')'
+  color = '#' + Math.floor(Math.random() * 16777215).toString(16)
   $('body').css('background-color', color)
