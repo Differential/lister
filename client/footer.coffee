@@ -9,7 +9,8 @@ Template.footer.events
         {_id: Meteor.userId()},
         { $unset: { 'profile.color': '' } }
       )
-      color = '#' + Math.floor(Math.random() * 6777215).toString(16)
+      color = '#'
+      _(6).times -> color += (Math.floor(Math.random() * 7))
       Session.set('color', color)
       $('body').css('background-color', color)
 
