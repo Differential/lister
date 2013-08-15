@@ -4,7 +4,13 @@ Meteor.Router.add
     Session.set('query', '')
     'home'
 
-  '/lists': -> 'listsIndex'
+  '/lists': ->
+     if Meteor.loggingIn()
+       'loading'
+     else if Meteor.user()
+      'listsIndex'
+     else
+       'home'
 
   '/new': ->
      if Meteor.loggingIn()
