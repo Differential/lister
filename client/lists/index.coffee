@@ -5,7 +5,6 @@ Template.listsIndex.helpers
   hasLists: ->
     Lists.find(userId: Meteor.userId()).count() > 0
 
-
   contributedLists: ->
     Lists.find(userId: { $ne: Meteor.userId() })
 
