@@ -1,4 +1,8 @@
 Template.api.rendered = ->
+
+  if /iPad|iPhone/i.test(navigator.userAgent)
+    return $('#copy-trigger').hide()
+
   clip = new ZeroClipboard($('#copy-trigger'), {
     moviePath: '/ZeroClipboard.swf'
   })
@@ -13,9 +17,11 @@ Template.api.helpers
   'key': -> if Meteor.user().profile then Meteor.user().profile.apiKey
 
 Template.api.events
-
-  'submit form': (e) ->
+  'click .create-new-key': (e) ->
     e.preventDefault()
     Meteor.call('updateApiKey', (err, key) ->
       $('[name=key]').val(key)
     )
+
+  'submit form': (e) ->
+    e.preventDefault()
