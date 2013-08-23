@@ -11,6 +11,7 @@
     {{#if canVote}}
       <a class='vote {{voteClass}}'><i class='icon-heart muted'></i></a>
     {{/if}}
+    {{#if score}}<span class='score'>{{score}}</span>{{/if}}
     <a class='user-link' href="/{{itemUsername}}">{{itemUsername}}</a>
   </li>
 </template>
