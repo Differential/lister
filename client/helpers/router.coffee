@@ -13,6 +13,7 @@ Meteor.Router.add
       'loading'
     else if Meteor.user()
       Session.set('username', Meteor.user().username)
+      Session.set('listId', null)
       'listsIndex'
     else
       Session.set('username', null)
