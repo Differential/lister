@@ -19,14 +19,14 @@ Template.shareLists.rendered = ->
   href = "#{base}?url=#{url}&via=#{via}&text=#{text}"
 
   $('#tw-share').attr('href', href)
-  
+
   # Google
   base = 'https://plus.google.com/share'
   url = encodeURIComponent(location.origin + location.pathname)
   href = "#{base}?url=#{url}"
 
   $('#gp-share').attr('href', href)
- 
+
 Template.shareLists.helpers
   username: ->
     Session.get('username')

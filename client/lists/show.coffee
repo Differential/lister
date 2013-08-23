@@ -1,3 +1,6 @@
+Template.showList.rendered = ->
+  $('body').css('background-color', Session.get('color'))
+
 Template.showList.helpers
   list: ->
     Lists.findOne(Session.get('listId'))

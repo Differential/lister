@@ -1,3 +1,6 @@
+Template.item.rendered = ->
+  $('body').css('background-color', Session.get('color'))
+
 Template.item.helpers
   'isOwner': ->
     Meteor.user() && (@.userId == Meteor.userId() || @.username == Meteor.user().username)

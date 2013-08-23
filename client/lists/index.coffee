@@ -1,3 +1,6 @@
+Template.listsIndex.rendered = ->
+  $('body').css('background-color', Session.get('color'))
+
 Template.listsIndex.helpers
   lists: ->
     Lists.find(userId: Meteor.userId())

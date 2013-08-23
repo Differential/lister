@@ -1,3 +1,6 @@
+Template.home.rendered = ->
+  $('body').css('background-color', Session.get('color'))
+
 Template.home.helpers
   items: ->
     Items.find({}, sort:{createdAt:-1})
