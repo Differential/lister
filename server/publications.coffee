@@ -1,9 +1,9 @@
-Meteor.publish 'lists', () ->
-  Lists.find(userId: @userId)
+Meteor.publish 'lists', (username) ->
+  Lists.find(username: username)
 
-Meteor.publish 'contributedLists', () ->
+Meteor.publish 'contributedLists', (username) ->
   items = Items.find(
-    {userId: @userId}
+    {itemUsername: username}
   ).fetch()
 
   listIds = _.uniq(_.pluck(items, 'listId'))

@@ -1,5 +1,6 @@
 Meteor.Router.add
   '/': ->
+    Session.set('username', null)
     if Meteor.loggingIn()
       'loading'
     else
@@ -8,21 +9,23 @@ Meteor.Router.add
       'home'
 
   '/lists': ->
-    Session.set('username', null)
     if Meteor.loggingIn()
       'loading'
     else if Meteor.user()
-     'listsIndex'
+      Session.set('username', Meteor.user().username)
+      'listsIndex'
     else
+      Session.set('username', null)
       'home'
 
   '/new': ->
-     if Meteor.loggingIn()
-       'loading'
-     else if Meteor.user()
-       'newList'
-     else
-       'home'
+    Session.set('username', Meteor.user().username)
+    if Meteor.loggingIn()
+      'loading'
+    else if Meteor.user()
+      'newList'
+    else
+      'home'
 
   '/:username/:slug': (username, slug) ->
     Session.set('itemsReady', false)
@@ -34,15 +37,14 @@ Meteor.Router.add
     'showList'
 
   '/api': ->
-     if Meteor.loggingIn()
-       'loading'
-     else if Meteor.user()
-       'api'
-     else
-       'home'
+    Session.set('username', Meteor.user().username)
+    if Meteor.loggingIn()
+      'loading'
+    else if Meteor.user()
+      'api'
+    else
+      'home'
 
   '/:username': (username)->
     Session.set('username', username)
     'listsIndex'
-
-
