@@ -5,18 +5,23 @@
       <div class="row-fluid">
         <div class="span6 offset3">
           {{#if hasLists}}
-            <h1>My lists</h1>
-
+            {{#if username}}
+              <h2>{{username}}'s lists</h2>
+            {{else}}
+              <h2>My lists</h2>
+            {{/if}}
             <ul class="list">
             {{#each lists}}
               <li class="list-item">{{> listItem}}</li>
             {{/each}}
             </ul>
           {{else}}
-            <div class='add-first-list'>
-              <a href='/new'>Add your first list</a>
-              <p>Seriously, it's super fun.</p>
-            </div>
+            {{#unless username}}
+              <div class='add-first-list'>
+                <a href='/new'>Add your first list</a>
+                <p>Seriously, it's super fun.</p>
+              </div>
+            {{/unless}}
           {{/if}}
         </div>
       </div>
@@ -24,7 +29,11 @@
       {{#if hasContributedToLists}}
         <div class="row-fluid">
           <div class="span6 offset3">
-            <h1>Lists to which I've contributed</h1>
+            {{#if username}}
+              <h2>{{username}} has contributed to</h2>
+            {{else}}
+              <h2>Lists to which I've contributed</h2>
+            {{/if}}
 
             <ul class="list">
             {{#each contributedLists}}

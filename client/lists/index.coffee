@@ -2,11 +2,20 @@ Template.listsIndex.rendered = ->
   $('body').css('background-color', Session.get('color'))
 
 Template.listsIndex.helpers
+  username: ->
+    Session.get('username')
+
   lists: ->
-    Lists.find(userId: Meteor.userId())
+    if Session.get('username')
+      Lists.find(username: Session.get('username'))
+    else
+      Lists.find(userId: Meteor.userId())
 
   hasLists: ->
-    Lists.find(userId: Meteor.userId()).count() > 0
+    if Session.get('username')
+      Lists.find(username: Session.get('username')).count() > 0
+    else
+      Lists.find(userId: Meteor.userId()).count() > 0
 
   contributedLists: ->
     Lists.find(userId: { $ne: Meteor.userId() })

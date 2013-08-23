@@ -34,6 +34,7 @@ Template.showList.events
 
       Items.insert(
         userId: Meteor.userId()
+        itemUsername: Meteor.user().username
         listId: Session.get('listId'),
         text: $('#text').val()
         url: urlValue

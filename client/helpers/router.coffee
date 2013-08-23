@@ -8,12 +8,13 @@ Meteor.Router.add
       'home'
 
   '/lists': ->
-     if Meteor.loggingIn()
-       'loading'
-     else if Meteor.user()
-      'listsIndex'
-     else
-       'home'
+    Session.set('username', null)
+    if Meteor.loggingIn()
+      'loading'
+    else if Meteor.user()
+     'listsIndex'
+    else
+      'home'
 
   '/new': ->
      if Meteor.loggingIn()
@@ -39,3 +40,9 @@ Meteor.Router.add
        'api'
      else
        'home'
+
+  '/:username': (username)->
+    Session.set('username', username)
+    'listsIndex'
+
+
