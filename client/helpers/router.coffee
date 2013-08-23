@@ -28,12 +28,9 @@ Meteor.Router.add
       'home'
 
   '/:username/:slug': (username, slug) ->
-    Session.set('itemsReady', false)
     Session.set('username', username)
-
     Meteor.call 'findListId', username, slug, (err, listId) ->
       Session.set('listId', listId)
-
     'showList'
 
   '/api': ->

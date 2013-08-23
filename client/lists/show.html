@@ -3,38 +3,36 @@
     <div class="container">
       <div class="row-fluid">
         <div class="span6 offset3">
-          {{#if itemsReady}}
-            <h2>{{list.name}}</h2>
-              <ul class='list'>
-                {{#each items}}
-                  {{> item}}
-                {{/each}}
-              </ul>
+          <h2>{{list.name}}</h2>
+            <ul class='list'>
+              {{#each items}}
+                {{> item}}
+              {{/each}}
+            </ul>
 
-              {{#if canAdd}}
-                <form class="form-inline add-item">
-                  <div class='controls control-row'>
-                    <textarea type="text" class="span12" placeholder='text' id="text" />
-                    <input type="text" class="span10" placeholder='url (optional)' id="url">
-                    <button type='submit' class='btn span2'>Add</button>
-                  </div>
-                </form>
-              {{/if}}
-
-              {{#unless currentUser}}
-                <div class='open-list-message'>
-                  {{#if couldAdd}}
-                    If you sign in, you can vote up your favorites, and add to the list.
-                  {{else}}
-                    If you sign in, you can vote up your favorites.
-                  {{/if}}
+            {{#if canAdd}}
+              <form class="form-inline add-item">
+                <div class='controls control-row'>
+                  <textarea type="text" class="span12" placeholder='text' id="text" />
+                  <input type="text" class="span10" placeholder='url (optional)' id="url">
+                  <button type='submit' class='btn span2'>Add</button>
                 </div>
-              {{/unless}}
+              </form>
+            {{/if}}
 
-            <div class="share">
-              {{> shareLists}}
-            </div>
-          {{/if}}
+            {{#unless currentUser}}
+              <div class='open-list-message'>
+                {{#if couldAdd}}
+                  If you sign in, you can vote up your favorites, and add to the list.
+                {{else}}
+                  If you sign in, you can vote up your favorites.
+                {{/if}}
+              </div>
+            {{/unless}}
+
+          <div class="share">
+            {{> shareLists}}
+          </div>
         </div>
       </div>
     </div>

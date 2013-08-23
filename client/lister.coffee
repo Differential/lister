@@ -1,11 +1,8 @@
-
 Deps.autorun ->
   Meteor.subscribe 'lists', Session.get('username')
   Meteor.subscribe 'contributedLists', Session.get('username')
   Meteor.subscribe 'currentList', Session.get('listId')
-  Meteor.subscribe 'items', Session.get('listId'),
-    onReady: ->
-      Session.set('itemsReady', true)
+  Meteor.subscribe 'items', Session.get('listId')
   Meteor.subscribe 'recentItems', Session.get('query')
 
   color = '#'

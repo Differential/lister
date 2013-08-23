@@ -8,9 +8,6 @@ Template.showList.helpers
   items: ->
     Items.find({listId: Session.get('listId')}, {sort: {position: -1, score: -1}})
 
-  itemsReady: ->
-    Session.get('itemsReady')
-
   canAdd: ->
     list = Lists.findOne(Session.get('listId'))
     Meteor.user() && list && (list.userId == Meteor.userId() || list.open)
