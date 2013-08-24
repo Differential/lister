@@ -20,10 +20,10 @@ Meteor.Router.add
       'home'
 
   '/new': ->
-    Session.set('username', Meteor.user().username)
     if Meteor.loggingIn()
       'loading'
     else if Meteor.user()
+      Session.set('username', Meteor.user().username)
       'newList'
     else
       'home'
@@ -35,10 +35,10 @@ Meteor.Router.add
     'showList'
 
   '/api': ->
-    Session.set('username', Meteor.user().username)
     if Meteor.loggingIn()
       'loading'
     else if Meteor.user()
+      Session.set('username', Meteor.user().username)
       'api'
     else
       'home'
