@@ -29,21 +29,24 @@ Template.showList.events
           else
             'http://' + url.val()
 
-      Items.insert(
-        userId: Meteor.userId()
-        itemUsername: Meteor.user().username
-        listId: Session.get('listId'),
-        text: $('#text').val()
-        url: urlValue
-        upvoters: []
-        downvoters: []
-        points: 0
-        position: 0
-        createdAt: new Date()
-        username: Lists.findOne(Session.get('listId')).username
-        listSlug: Lists.findOne(Session.get('listId')).slug
-        listName: Lists.findOne(Session.get('listId')).name
-      )
-      $('#text').val ''
-      $('#text').focus()
-      $('#url').val ''
+      if $('#text').val().length > 2
+        Items.insert(
+          userId: Meteor.userId()
+          itemUsername: Meteor.user().username
+          listId: Session.get('listId'),
+          text: $('#text').val()
+          url: urlValue
+          upvoters: []
+          downvoters: []
+          points: 0
+          position: 0
+          createdAt: new Date()
+          username: Lists.findOne(Session.get('listId')).username
+          listSlug: Lists.findOne(Session.get('listId')).slug
+          listName: Lists.findOne(Session.get('listId')).name
+        )
+        $('#text').val ''
+        $('#text').focus()
+        $('#url').val ''
+      else
+        alert 'Be more descriptive.'

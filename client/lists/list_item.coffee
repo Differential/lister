@@ -3,7 +3,8 @@ Template.item.rendered = ->
 
 Template.item.helpers
   score: ->
-    @upvoters.length if @upvoters.length > 0
+    if @upvoters
+      @upvoters.length if @upvoters.length > 0
 
   'isOwner': ->
     Meteor.user() && (@.userId == Meteor.userId() || @.username == Meteor.user().username)
