@@ -9,7 +9,8 @@
       <a class='delete'><i class='icon-remove'></i></a>
     {{/if}}
     {{#if canVote}}
-      <a class='vote {{voteClass}}'><i class='icon-heart muted'></i></a>
+      <a class='upvote {{upvoteClass}}'><i class='icon-arrow-up muted'></i></a>
+      <a class='downvote {{downvoteClass}}'><i class='icon-arrow-down muted'></i></a>
     {{/if}}
     {{#if score}}<span class='score'>{{score}}</span>{{/if}}
     <a class='user-link' href="/{{itemUsername}}">{{itemUsername}}</a>

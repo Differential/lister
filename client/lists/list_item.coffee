@@ -2,26 +2,32 @@ Template.item.rendered = ->
   $('body').css('background-color', Session.get('color'))
 
 Template.item.helpers
-  score: ->
-    if @upvoters
-      @upvoters.length if @upvoters.length > 0
-
   'isOwner': ->
     Meteor.user() && (@.userId == Meteor.userId() || @.username == Meteor.user().username)
 
   'canVote': ->
     Meteor.user() && @.userId != Meteor.userId()
 
-  'voteClass': ->
+  'upvoteClass': ->
     userId = Meteor.userId()
 
     if (userId && _.include(this.upvoters, userId))
-      return 'upvoted'
+      return 'voted'
+
+  'downvoteClass': ->
+    userId = Meteor.userId()
+
+    if (userId && _.include(this.downvoters, userId))
+      return 'voted'
 
 Template.item.events
   'click .delete': ->
     Items.remove(@_id)
 
-  'click .vote': ->
+  'click .upvote': ->
     event.preventDefault()
     Meteor.call('upvote', @._id)
+
+  'click .downvote': ->
+    event.preventDefault()
+    Meteor.call('downvote', @._id)
