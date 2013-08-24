@@ -1,4 +1,5 @@
 Template.api.rendered = ->
+  $('body').css('background-color', Session.get('color'))
 
   if /iPad|iPhone/i.test(navigator.userAgent)
     return $('#copy-trigger').hide()
