@@ -38,7 +38,7 @@ Template.showList.events
           url: urlValue
           upvoters: []
           downvoters: []
-          points: 0
+          score: 0
           position: 0
           createdAt: new Date()
           username: Lists.findOne(Session.get('listId')).username
