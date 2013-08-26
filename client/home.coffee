@@ -9,7 +9,7 @@ Template.home.helpers
     Session.get('query')
 
 Template.home.events
-  'keyup #query': ->
+  'keyup #query': (event) ->
     event.preventDefault()
     query = $(event.target).val()
     Session.set('query', query)

@@ -3,7 +3,7 @@ Template.footer.helpers
     Session.get('color')
 
 Template.footer.events
-  'change .color': ->
+  'change .color': (event) ->
     if $(event.target).val() == ''
       Meteor.users.update(
         {_id: Meteor.userId()},
