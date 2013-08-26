@@ -17,7 +17,7 @@ Template.showList.helpers
     !Meteor.user() && list && list.open
 
 Template.showList.events
-  'submit .add-item': ->
+  'submit .add-item': (event) ->
       event.preventDefault()
       url = $('#url')
       urlValue =

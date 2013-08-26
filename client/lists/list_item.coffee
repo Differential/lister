@@ -24,10 +24,10 @@ Template.item.events
   'click .delete': ->
     Items.remove(@_id)
 
-  'click .upvote': ->
+  'click .upvote': (event) ->
     event.preventDefault()
     Meteor.call('upvote', @._id)
 
-  'click .downvote': ->
+  'click .downvote': (event) ->
     event.preventDefault()
     Meteor.call('downvote', @._id)

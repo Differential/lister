@@ -2,7 +2,7 @@ Template.newList.rendered = ->
   $('body').css('background-color', Session.get('color'))
 
 Template.newList.events
-  'submit .newList': ->
+  'submit .newList': (event) ->
     event.preventDefault()
     name = $('[name=name]')
     open = $('[name=open]')
