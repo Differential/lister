@@ -2,20 +2,23 @@
   <div class="view-lists list">
     <div class="container">
       <div class="row-fluid">
-        <div class="span6 offset3">
+        <div class="span12">
           <h2>{{list.name}}</h2>
             <ul class='list'>
               {{#each items}}
                 {{> item}}
               {{/each}}
             </ul>
+        </div>
 
+        <div class="span6 offset3">
             {{#if canAdd}}
               <form class="form-inline add-item">
+                <p>Add an item to this list</p>
                 <div class='controls control-row'>
                   <textarea type="text" class="span12" placeholder='text' id="text" />
                   <input type="text" class="span10" placeholder='url (optional)' id="url">
-                  <button type='submit' class='btn span2'>Add</button>
+                  <button type='submit' class='btn btn-inverse span2'>Add</button>
                 </div>
               </form>
             {{/if}}

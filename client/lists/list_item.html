@@ -1,18 +1,27 @@
 <template name='item'>
   <li>
-    {{#if url}}
-      <a href="{{url}}">{{text}}</a>
-    {{else}}
-      {{text}}
-    {{/if}}
-    {{#if isOwner}}
-      <a class='delete'><i class='icon-remove'></i></a>
-    {{/if}}
-    {{#if canVote}}
-      <a class='upvote {{upvoteClass}}'><i class='icon-arrow-up muted'></i></a>
-      <a class='downvote {{downvoteClass}}'><i class='icon-arrow-down muted'></i></a>
-    {{/if}}
-    {{#if score}}<span class='score'>{{score}}</span>{{/if}}
-    <a class='user-link' href="/{{itemUsername}}">{{itemUsername}}</a>
+    <p class='score'>
+      {{score}}
+    </p>
+    <p class='actions'>
+      {{#if isOwner}}
+        <a class='delete'><i class='icon-remove'></i></a>
+      {{/if}}
+      {{#if canVote}}
+        <a class='upvote {{upvoteClass}}'><i class='icon-arrow-up muted'></i></a>
+        <a class='downvote {{downvoteClass}}'><i class='icon-arrow-down muted'></i></a>
+      {{/if}}
+    </p>
+    <p class='text'>
+      {{#if url}}
+        <a href="{{url}}">{{text}}</a>
+      {{else}}
+        {{text}}
+      {{/if}}
+    </p>
+    <p class='addedBy'>
+      {{date createdAt}}
+      by <a class='user-link' href="/{{itemUsername}}">{{itemUsername}}</a>
+    </p>
   </li>
 </template>

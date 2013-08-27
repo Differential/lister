@@ -128,35 +128,6 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
     font-size: 28px;
   }
 
-
-  ul {
-    list-style: none;
-    margin: 20px auto 120px;
-    li {
-      clear: both;
-      line-height: 30px;
-      padding: 2%;
-      overflow: hidden;
-      p.text {
-        float: left;
-        width: 60%;
-      }
-      p.listName, p.whenAdded {
-        float: right;
-        text-align: right;
-        width: 40%;
-      }
-      p.whenAdded {
-        opacity: 0.5;
-        font-size: 100%;
-        clear: right;
-      }
-      &:nth-child(2n+0) {
-        background: rgba(0,0,0,0.2);
-      }
-    }
-  }
-
   .search {
     text-align: center;
     #query {
@@ -164,6 +135,66 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
     }
   }
 }
+
+ul.list {
+  list-style: none;
+  margin: 20px auto 120px;
+  li {
+    clear: both;
+    line-height: 30px;
+    padding: 1.5%;
+    overflow: hidden;
+    p {
+      font-size: 24px;
+      line-height: 32px;
+      font-weight: 100;
+      margin: 0;
+    }
+    p.text {
+      float: left;
+      width: 60%;
+    }
+    p.listName, p.whenAdded {
+      float: right;
+      text-align: right;
+      width: 40%;
+    }
+    p.whenAdded {
+      opacity: 0.5;
+      font-size: 100%;
+      clear: right;
+    }
+    p.score {
+      width: 3%;
+      text-align: center;
+      margin-right: 1%;
+      float: left;
+    }
+    p.actions {
+      width: 2%;
+      text-align: center;
+      font-size: 16px;
+      line-height: 20px;
+      margin-right: 1%;
+      margin-top: -4px;
+      float: left;
+      a.delete {
+        font-size: 24px;
+        line-height: 40px;
+      }
+    }
+    p.addedBy {
+      float: right;
+      text-align: right;
+      font-size: 18px;
+      width: 33%;
+    }
+    &:nth-child(2n+0) {
+      background: rgba(0,0,0,0.2);
+    }
+  }
+}
+
 
 h3.share-list {
     text-align: center;
@@ -185,16 +216,11 @@ h3.share-list {
   ul.list {
     margin-left: 0px;
     margin-bottom: 50px;
-    text-align: center;
-
     li {
       font-size: 20px;
       line-height: 32px;
       font-weight: 400;
-      padding: 5px 0;
       list-style: none;
-      border-bottom: 1px dashed rgba(255,255,255,0.2);
-
       a {
         color: #FFF;
 
@@ -214,7 +240,6 @@ h3.share-list {
         }
       }
       a.user-link {
-        font-size: 70%;
         color: rgba(255,255,255,0.4);
       }
       span {
@@ -227,6 +252,12 @@ h3.share-list {
   form.add-item {
     padding: 15px;
     background: rgba(255, 255, 255, 0.15);
+    p {
+      text-align: center;
+      font-size: 24px;
+      line-height: 32px;
+      font-weight: 100;
+    }
     input {
       margin-bottom: 10px;
     }
