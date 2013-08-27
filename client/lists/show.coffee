@@ -6,7 +6,7 @@ Template.showList.helpers
     Lists.findOne(Session.get('listId'))
 
   items: ->
-    Items.find({listId: Session.get('listId')}, {sort: {position: -1, score: -1}})
+    Items.find({listId: Session.get('listId')}, {sort: {score: -1}})
 
   canAdd: ->
     list = Lists.findOne(Session.get('listId'))
