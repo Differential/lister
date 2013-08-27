@@ -117,20 +117,37 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
   }
 
   p {
-    text-align: center;
-    font-size: 28px;
+    font-size: 24px;
+    line-height: 32px;
     font-weight: 100;
-    margin-top: 15px;
   }
 
+  p.subhead {
+    text-align: center;
+    font-size: 28px;
+  }
+
+
   ul {
-    text-align:center;
     list-style: none;
     margin: 20px auto 120px;
-    max-width: 600px;
     li {
+      clear: both;
       line-height: 30px;
-      border-bottom: 1px dotted;
+      padding: 2%;
+      overflow: hidden;
+      p.text {
+        float: left;
+        width: 60%;
+      }
+      p.listName, p.whenAdded {
+        float: right;
+        text-align: right;
+        width: 30%;
+      }
+      &:nth-child(2n+0) {
+        background: rgba(0,0,0,0.2);
+      }
     }
   }
 
@@ -222,8 +239,9 @@ h3.share-list {
   }
 }
 
-span.when-added {
+p.whenAdded {
   opacity: 0.5;
+  font-size: 100%;
 }
 
 div.share {
