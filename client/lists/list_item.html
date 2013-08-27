@@ -6,13 +6,14 @@
     <p class='actions'>
       {{#if isOwner}}
         <a class='delete'><i class='icon-remove'></i></a>
-      {{/if}}
-      {{#if canVote}}
-        <a class='upvote {{upvoteClass}}'><i class='icon-arrow-up muted'></i></a>
-        <a class='downvote {{downvoteClass}}'><i class='icon-arrow-down muted'></i></a>
       {{else}}
-        <i class='icon-arrow-up muted'></i>
-        <i class='icon-arrow-down muted'></i>
+        {{#if canVote}}
+          <a class='upvote {{upvoteClass}}'><i class='icon-arrow-up muted'></i></a>
+          <a class='downvote {{downvoteClass}}'><i class='icon-arrow-down muted'></i></a>
+        {{else}}
+          <i class='icon-arrow-up muted'></i>
+          <i class='icon-arrow-down muted'></i>
+        {{/if}}
       {{/if}}
     </p>
     <p class='text'>
