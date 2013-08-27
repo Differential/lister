@@ -4,12 +4,12 @@
       {{score}}
     </p>
     <p class='actions'>
-      {{#if isOwner}}
-        <a class='delete'><i class='icon-remove'></i></a>
+      {{#if canVote}}
+        <a class='upvote {{upvoteClass}}'><i class='icon-arrow-up muted'></i></a>
+        <a class='downvote {{downvoteClass}}'><i class='icon-arrow-down muted'></i></a>
       {{else}}
-        {{#if canVote}}
-          <a class='upvote {{upvoteClass}}'><i class='icon-arrow-up muted'></i></a>
-          <a class='downvote {{downvoteClass}}'><i class='icon-arrow-down muted'></i></a>
+        {{#if ownItem}}
+          &nbsp;
         {{else}}
           <i class='icon-arrow-up muted'></i>
           <i class='icon-arrow-down muted'></i>
@@ -21,6 +21,9 @@
         <a href="{{url}}">{{text}}</a>
       {{else}}
         {{text}}
+      {{/if}}
+      {{#if isOwner}}
+        <a class='delete'><i class='icon-remove'></i></a>
       {{/if}}
     </p>
     <p class='addedBy'>

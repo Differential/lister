@@ -2,11 +2,14 @@ Template.item.rendered = ->
   $('body').css('background-color', Session.get('color'))
 
 Template.item.helpers
+  ownItem: ->
+    @.userId == Meteor.userId()
+
   'isOwner': ->
-    Meteor.user() && (@.userId == Meteor.userId() || @.username == Meteor.user().username)
+    Meteor.user() && (@userId == Meteor.userId() || @username == Meteor.user().username)
 
   'canVote': ->
-    Meteor.user() && @.userId != Meteor.userId()
+    Meteor.user() && @userId != Meteor.userId()
 
   'upvoteClass': ->
     userId = Meteor.userId()
