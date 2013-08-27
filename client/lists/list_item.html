@@ -10,6 +10,9 @@
       {{#if canVote}}
         <a class='upvote {{upvoteClass}}'><i class='icon-arrow-up muted'></i></a>
         <a class='downvote {{downvoteClass}}'><i class='icon-arrow-down muted'></i></a>
+      {{else}}
+        <i class='icon-arrow-up muted'></i>
+        <i class='icon-arrow-down muted'></i>
       {{/if}}
     </p>
     <p class='text'>
