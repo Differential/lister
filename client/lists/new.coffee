@@ -1,5 +1,6 @@
 Template.newList.rendered = ->
   $('body').css('background-color', Session.get('color'))
+  document.title = "Add list ~ lister.io"
 
 Template.newList.events
   'submit .newList': (event) ->

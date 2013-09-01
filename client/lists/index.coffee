@@ -1,5 +1,6 @@
 Template.listsIndex.rendered = ->
   $('body').css('background-color', Session.get('color'))
+  document.title = Session.get('username') + "'s lists ~ lister.io"
 
 Template.listsIndex.helpers
   username: ->
