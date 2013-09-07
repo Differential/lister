@@ -21,12 +21,6 @@ Meteor.startup ->
         if !(user = authenticateToken(token))
           return false
 
-        # Filter objs by userId (no for loops in Coffee?)
-        i = 0
-        while i < objs.length
-          objs[i] = null unless objs[i].userId is user._id
-          i++
-
         true
 
       POST: (obj, token) ->
@@ -57,17 +51,6 @@ Meteor.startup ->
       GET: (id, objs, token) ->
         if !(user = authenticateToken(token))
           return false
-
-        # Filter objs by list's userId (no for loops in Coffee?)
-        i = 0
-        while i < objs.length
-          if !(list = Lists.findOne({ _id: objs[i].listId }))
-            objs[i] = null
-
-          else if user._id isnt list.userId
-            objs[i] = null
-
-          i++
 
         true
 
