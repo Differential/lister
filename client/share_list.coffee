@@ -14,7 +14,7 @@ Template.shareLists.rendered = ->
   # Twitter
   base = 'https://twitter.com/intent/tweet'
   url = encodeURIComponent(location.origin + location.pathname)
-  via = 'listerioapp'
+  via = 'getlister'
   text = encodeURIComponent('I made a list: ' + $('#tw-share').data('name'))
   href = "#{base}?url=#{url}&via=#{via}&text=#{text}"
 
