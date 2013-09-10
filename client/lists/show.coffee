@@ -8,7 +8,8 @@ Template.showList.helpers
     List.first(Session.get('listId'))
 
   items: ->
-    Items.find({listId: Session.get('listId')}, {sort: {score: -1}})
+    list = List.first(Session.get('listId'))
+    list.related('items', {sort: {score: -1}}) if list
 
   canAdd: ->
     list = List.first(Session.get('listId'))
@@ -32,7 +33,7 @@ Template.showList.events
             'http://' + url.val()
 
       if $('#text').val().length > 2
-        Items.insert(
+        Item.create(
           userId: Meteor.userId()
           itemUsername: Meteor.user().username
           listId: Session.get('listId'),

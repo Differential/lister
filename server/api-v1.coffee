@@ -89,6 +89,6 @@ Meteor.startup ->
 
   api.addCollection(List, 'lists', listFilters)
 
-  api.addCollection(Items, 'items', itemFilters)
+  api.addCollection(Item, 'items', itemFilters)
 
   api.start()

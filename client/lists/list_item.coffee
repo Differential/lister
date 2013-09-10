@@ -25,7 +25,7 @@ Template.item.helpers
 
 Template.item.events
   'click .delete': ->
-    Items.remove(@_id)
+    @destroy()
 
   'click .upvote': (event) ->
     event.preventDefault()

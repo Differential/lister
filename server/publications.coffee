@@ -2,7 +2,7 @@ Meteor.publish 'lists', (username) ->
   List.find(username: username)
 
 Meteor.publish 'contributedLists', (username) ->
-  items = Items.find(
+  items = Item.find(
     {itemUsername: username}
   ).fetch()
 
@@ -16,13 +16,13 @@ Meteor.publish 'contributedLists', (username) ->
   List.find(_id: listId)
 
 Meteor.publish 'items', (listId) ->
-  Items.find(listId: listId)
+  Item.find(listId: listId)
 
 Meteor.publish 'recentItems', (query) ->
   if query
-    Items.find({$or: [
+    Item.find({$or: [
         {text: {$regex: query, $options: 'i'}},
         {listName: {$regex: query, $options: 'i'}}
       ]}, {limit: 10})
   else
-    Items.find({}, {sort: {createdAt: -1}, limit: 10})
+    Item.find({}, {sort: {createdAt: -1}, limit: 10})

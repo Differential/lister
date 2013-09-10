@@ -1,6 +1,11 @@
-@Items = new Meteor.Collection 'items'
+class @Item extends Minimongoid
+  @_collection: new Meteor.Collection 'items'
 
-Items.allow(
+  @belongs_to: [
+    {name: 'list'}
+  ]
+
+Item._collection.allow(
   insert: (userId, item) ->
     list = List.first(item.listId)
 
