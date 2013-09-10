@@ -32,4 +32,4 @@ Template.shareLists.helpers
     Session.get('username')
 
   list: ->
-    Lists.findOne(Session.get('listId'))
+    List.first(Session.get('listId'))

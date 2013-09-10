@@ -1,6 +1,7 @@
-@Lists = new Meteor.Collection 'lists'
+class @List extends Minimongoid
+  @_collection: new Meteor.Collection 'lists'
 
-Lists.allow(
+List._collection.allow(
   insert: (userId, list) ->
     userId
 

@@ -58,7 +58,7 @@ Meteor.startup ->
         if !(user = authorized(obj, token))
           return false
 
-        if !(list = Lists.findOne({ _id: obj.listId }))
+        if !(list = List.first(obj.listId))
           return false
 
         if user._id isnt list.userId and !list.open
@@ -87,7 +87,8 @@ Meteor.startup ->
     apiPath: 'api/v1'
   )
 
-  api.addCollection(Lists, 'lists', listFilters)
+  api.addCollection(List, 'lists', listFilters)
+
   api.addCollection(Items, 'items', itemFilters)
 
   api.start()

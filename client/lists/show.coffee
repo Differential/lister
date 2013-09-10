@@ -1,21 +1,21 @@
 Template.showList.rendered = ->
   $('body').css('background-color', Session.get('color'))
-  Session.set('name', Lists.findOne(Session.get('listId')).name)
+  Session.set('name', List.first(Session.get('listId')).name)
   document.title = Session.get('name') + " ~ by " + Session.get('username') + " ~ lister.io"
 
 Template.showList.helpers
   list: ->
-    Lists.findOne(Session.get('listId'))
+    List.first(Session.get('listId'))
 
   items: ->
     Items.find({listId: Session.get('listId')}, {sort: {score: -1}})
 
   canAdd: ->
-    list = Lists.findOne(Session.get('listId'))
+    list = List.first(Session.get('listId'))
     Meteor.user() && list && (list.userId == Meteor.userId() || list.open)
 
   couldAdd: ->
-    list = Lists.findOne(Session.get('listId'))
+    list = List.first(Session.get('listId'))
     !Meteor.user() && list && list.open
 
 Template.showList.events
@@ -43,9 +43,9 @@ Template.showList.events
           score: 0
           position: 0
           createdAt: new Date()
-          username: Lists.findOne(Session.get('listId')).username
-          listSlug: Lists.findOne(Session.get('listId')).slug
-          listName: Lists.findOne(Session.get('listId')).name
+          username: List.first(Session.get('listId')).username
+          listSlug: List.first(Session.get('listId')).slug
+          listName: List.first(Session.get('listId')).name
         )
         $('#text').val ''
         $('#text').focus()

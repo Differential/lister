@@ -8,10 +8,10 @@ Meteor.startup ->
      key
 
    findListId: (username, slug) ->
-     Lists.findOne(
+     List.first(
        username: username
        slug: slug
-     )._id
+     ).id
 
    upvote: (itemId) ->
      user = Meteor.user()

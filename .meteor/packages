@@ -12,3 +12,13 @@ less
 router
 spiderable
 accounts-facebook
+standard-app-packages
+external-file-loader
+HTML5-History-API
+minimongoid
+page-js-ie-support
+phantomjs
+underscore-string-latest
+sitemaps
+robots-txt
+collection-api

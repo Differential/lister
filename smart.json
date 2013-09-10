@@ -4,6 +4,8 @@
     "phantomjs": {},
     "HTML5-History-API": {},
     "external-file-loader": {},
-    "sitemaps": {}
+    "sitemaps": {},
+    "robots-txt": {},
+    "collection-api": {}
   }
 }

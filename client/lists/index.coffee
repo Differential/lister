@@ -8,21 +8,21 @@ Template.listsIndex.helpers
 
   lists: ->
     if Session.get('username')
-      Lists.find(username: Session.get('username'))
+      List.find(username: Session.get('username'))
     else
-      Lists.find(userId: Meteor.userId())
+      List.find(userId: Meteor.userId())
 
   hasLists: ->
     if Session.get('username')
-      Lists.find(username: Session.get('username')).count() > 0
+      List.find(username: Session.get('username')).count() > 0
     else
-      Lists.find(userId: Meteor.userId()).count() > 0
+      List.find(userId: Meteor.userId()).count() > 0
 
   contributedLists: ->
-    Lists.find(userId: { $ne: Meteor.userId() })
+    List.find(userId: { $ne: Meteor.userId() })
 
   hasContributedToLists: ->
-    Lists.find(userId: { $ne: Meteor.userId() }).count() > 0
+    List.find(userId: { $ne: Meteor.userId() }).count() > 0
 
 Template.listsIndex.events
   'click .addList': ->

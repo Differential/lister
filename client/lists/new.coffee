@@ -8,14 +8,13 @@ Template.newList.events
     name = $('[name=name]')
     open = $('[name=open]')
 
-    Lists.insert(
+    List.create
       userId: Meteor.userId()
       username: Meteor.user().username
       name: name.val()
       open: open.is(':checked')
       slug: (name.val() || '').replace(/\W+/g, '-').toLowerCase()
       createdAt: new Date()
-    )
 
     name.val ''
     Meteor.Router.to('/lists')

@@ -2,7 +2,7 @@
 
 Items.allow(
   insert: (userId, item) ->
-    list = Lists.findOne(item.listId)
+    list = List.first(item.listId)
 
     userId && list && (list.userId == userId || list.open)
 
