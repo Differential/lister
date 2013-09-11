@@ -6,6 +6,7 @@
     "external-file-loader": {},
     "sitemaps": {},
     "robots-txt": {},
-    "collection-api": {}
+    "collection-api": {},
+    "minimongoid": {}
   }
 }

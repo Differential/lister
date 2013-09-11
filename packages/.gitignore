@@ -8,3 +8,5 @@ external-file-loader
 sitemaps
 robots-txt
 collection-api
+minimongoid
+underscore-string-latest

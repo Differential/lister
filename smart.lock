@@ -8,7 +8,8 @@
       "external-file-loader": {},
       "sitemaps": {},
       "robots-txt": {},
-      "collection-api": {}
+      "collection-api": {},
+      "minimongoid": {}
     },
     "packages": {
       "router": {
@@ -46,10 +47,20 @@
         "tag": "v0.1.15",
         "commit": "b62c51f387287726cf3b64077f7bc69604ec2f5e"
       },
+      "minimongoid": {
+        "git": "https://github.com/Exygy/minimongoid.git",
+        "tag": "v0.7.8",
+        "commit": "e90f794ffb1dfb60ca6d97c6803afd8986d62694"
+      },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",
         "tag": "v1.3.5",
         "commit": "b99ed8380aefd10b2afc8f18d9eed4dd0d8ea9cb"
+      },
+      "underscore-string-latest": {
+        "git": "https://github.com/TimHeckel/meteor-underscore-string.git",
+        "tag": "v2.3.3",
+        "commit": "4a5d70eee48fbd90a6e6fc78747250d704a0b3bb"
       }
     }
   }
