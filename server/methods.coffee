@@ -43,8 +43,14 @@ Meteor.startup ->
        throw new Meteor.Error(422, 'Item not found')
 
      if (_.include(item.downvoters, user._id))
-       Item.update(item._id, { $pull: {downvoters: user._id}, $inc: {score: 1}})
+       #Item.update(item._id, { $pull: {downvoters: user._id}, $inc: {score: 1}})
+       item.pull({downvoters: user._id})
+       # TODO how do you increment in minimongoid?
      else
-       Item.update(item._id, { $addToSet: {downvoters: user._id}, $inc: {score: -1}})
+       #Item.update(item._id, { $addToSet: {downvoters: user._id}, $inc: {score: -1}})
+       item.push({downvoters: user._id})
+       # TODO how do you increment in minimongoid?
      if (_.include(item.upvoters, user._id))
-       Item.update(item._id, { $pull: {upvoters: user._id}, $inc: {score: -1}})
+       #Item.update(item._id, { $pull: {upvoters: user._id}, $inc: {score: -1}})
+       item.pull({upvoters: user._id})
+       # TODO how do you increment in minimongoid?
