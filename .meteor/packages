@@ -9,7 +9,6 @@ coffeescript
 accounts-ui
 accounts-password
 less
-router
 spiderable
 accounts-facebook
 standard-app-packages
@@ -21,4 +20,5 @@ phantomjs
 underscore-string-latest
 sitemaps
 robots-txt
+iron-router
 collection-api

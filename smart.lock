@@ -9,7 +9,8 @@
       "sitemaps": {},
       "robots-txt": {},
       "collection-api": {},
-      "minimongoid": {}
+      "minimongoid": {},
+      "iron-router": {}
     },
     "packages": {
       "router": {
@@ -51,6 +52,11 @@
         "git": "https://github.com/Exygy/minimongoid.git",
         "tag": "v0.7.8",
         "commit": "e90f794ffb1dfb60ca6d97c6803afd8986d62694"
+      },
+      "iron-router": {
+        "git": "https://github.com/EventedMind/iron-router.git",
+        "tag": "v0.5.4",
+        "commit": "3e0e22ff85630b7503d0daa1538c6d90abb84020"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",
