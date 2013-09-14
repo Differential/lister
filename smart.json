@@ -8,6 +8,8 @@
     "robots-txt": {},
     "collection-api": {},
     "minimongoid": {},
-    "iron-router": {}
+    "iron-router": {},
+    "reststop": {},
+    "npm": {}
   }
 }
