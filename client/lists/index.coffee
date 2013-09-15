@@ -26,4 +26,4 @@ Template.listsIndex.helpers
 
 Template.listsIndex.events
   'click .addList': ->
-    Meteor.Router.to('/lists/new')
+    Router.go('/lists/new')

@@ -17,4 +17,4 @@ Template.newList.events
       createdAt: new Date()
 
     name.val ''
-    Meteor.Router.to('/lists')
+    Router.go('/lists')
