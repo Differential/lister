@@ -29,8 +29,8 @@ Template.item.events
 
   'click .upvote': (event) ->
     event.preventDefault()
-    Meteor.call('upvote', @._id)
+    Meteor.call('upvote', @id)
 
   'click .downvote': (event) ->
     event.preventDefault()
-    Meteor.call('downvote', @._id)
+    Meteor.call('downvote', @id)

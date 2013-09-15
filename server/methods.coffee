@@ -25,11 +25,14 @@ Meteor.startup ->
        throw new Meteor.Error(422, 'Item not found')
 
      if (_.include(item.upvoters, user._id))
-       Item.update(item._id, { $pull: {upvoters: user._id}, $inc: {score: -1}})
+       item.pull(upvoters: user._id)
+       item.update(score: item.score - 1)
      else
-       Item.update(item._id, { $addToSet: {upvoters: user._id}, $inc: {score: 1}})
+       item.push(upvoters: user._id)
+       item.update(score: item.score + 1)
      if (_.include(item.downvoters, user._id))
-       Item.update(item._id, { $pull: {downvoters: user._id}, $inc: {score: 1}})
+       item.pull(downvoters: user._id)
+       item.update(score: item.score + 1)
 
    downvote: (itemId) ->
      user = Meteor.user()
@@ -43,14 +46,11 @@ Meteor.startup ->
        throw new Meteor.Error(422, 'Item not found')
 
      if (_.include(item.downvoters, user._id))
-       #Item.update(item._id, { $pull: {downvoters: user._id}, $inc: {score: 1}})
-       item.pull({downvoters: user._id})
-       # TODO how do you increment in minimongoid?
+       item.pull(downvoters: user._id)
+       item.update(score: item.score + 1)
      else
-       #Item.update(item._id, { $addToSet: {downvoters: user._id}, $inc: {score: -1}})
-       item.push({downvoters: user._id})
-       # TODO how do you increment in minimongoid?
+       item.push(downvoters: user._id)
+       item.update(score: item.score - 1)
      if (_.include(item.upvoters, user._id))
-       #Item.update(item._id, { $pull: {upvoters: user._id}, $inc: {score: -1}})
        item.pull({upvoters: user._id})
-       # TODO how do you increment in minimongoid?
+       item.update(score: item.score - 1)

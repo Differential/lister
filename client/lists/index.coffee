@@ -8,9 +8,9 @@ Template.listsIndex.helpers
 
   lists: ->
     if Session.get('username')
-      List.find(username: Session.get('username'))
+      List.where(username: Session.get('username'))
     else
-      List.find(userId: Meteor.userId())
+      List.where(userId: Meteor.userId())
 
   hasLists: ->
     if Session.get('username')

@@ -10,5 +10,4 @@ Template.listItem.helpers
 
 Template.listItem.events
   'click .delete': ->
-    list = List.first @_id
-    list.destroy()
+    @destroy()
