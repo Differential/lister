@@ -8,7 +8,9 @@ Template.newList.events
     name = $('[name=name]')
     open = $('[name=open]')
 
-    List.create
+    # There is a problem with minimongoid dates, which messes up sorting.
+    # See https://github.com/Exygy/minimongoid/issues/6
+    List._collection.insert
       userId: Meteor.userId()
       username: Meteor.user().username
       name: name.val()
