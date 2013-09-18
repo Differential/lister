@@ -27,4 +27,4 @@ Meteor.publish 'recentLists', (query) ->
         {listName: {$regex: query, $options: 'i'}}
       ]}, {sort: {createdAt: -1}, limit: LIMIT})
   else
-    List.find({}, {sort: {createdAt: -1}, limit: LIMIT})
+    List.find({}, {sort: {updatedAt: -1}, limit: LIMIT})
