@@ -18,7 +18,7 @@ Meteor.publish 'contributedLists', (username) ->
 Meteor.publish 'items', (listId) ->
   Item.find(listId: listId)
 
-LIMIT = 20
+LIMIT = 50
 
 Meteor.publish 'recentLists', (query) ->
   if query
