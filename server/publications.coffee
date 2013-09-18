@@ -22,9 +22,9 @@ LIMIT = 20
 
 Meteor.publish 'recentLists', (query) ->
   if query
-    List.find({$or: [
-        {'mostRecentItem.text': {$regex: query, $options: 'i'}},
-        {name: {$regex: query, $options: 'i'}}
+    Item.find({$or: [
+        {text: {$regex: query, $options: 'i'}},
+        {listName: {$regex: query, $options: 'i'}}
       ]}, {sort: {createdAt: -1}, limit: LIMIT})
   else
     List.find({}, {sort: {createdAt: -1}, limit: LIMIT})

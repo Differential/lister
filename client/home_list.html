@@ -1,0 +1,14 @@
+<template name='homeList'>
+  {{#if mostRecentItem}}
+    <li>
+      <p class='text'>
+        <a href='/{{username}}/{{slug}}'>{{mostRecentItem.text}}</a>
+      </p>
+      <p class='listName'><a href='/{{username}}/{{slug}}'>{{name}}</a></p>
+      <p class='whenAdded'>
+        {{date updatedAt}}
+        by <a href='/{{mostRecentItem.username}}'>{{mostRecentItem.username}}</a>
+      </p>
+    </li>
+  {{/if}}
+</template>

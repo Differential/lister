@@ -7,9 +7,15 @@
         <input type="text" id="query" value="{{query}}" placeholder="Search">
       </div>
       <ul class='list home-list'>
-        {{#each lists}}
-         {{> homeItem}}
-        {{/each}}
+        {{#if query}}
+          {{#each items}}
+            {{> homeItem}}
+          {{/each}}
+         {{else}}
+           {{#each lists}}
+             {{> homeList}}
+           {{/each}}
+         {{/if}}
       </ul>
     </div>
   </div>

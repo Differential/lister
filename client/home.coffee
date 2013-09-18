@@ -5,6 +5,9 @@ Template.home.helpers
   lists: ->
     List.find({}, sort:{updatedAt:-1})
 
+  items: ->
+    Item.find()
+
   query: ->
     Session.get('query')
 
