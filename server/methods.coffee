@@ -59,5 +59,5 @@ Meteor.startup ->
         item = Item.first(itemId)
         List.first(listId).update
           updatedAt: new Date()
-          'mostRecentItem.username': item.username
+          'mostRecentItem.username': item.itemUsername
           'mostRecentItem.text': item.text
