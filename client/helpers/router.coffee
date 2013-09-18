@@ -1,6 +1,8 @@
 Router.map ->
   @route 'home',
     path: '/'
+    waitOn: ->
+      Meteor.subscribe 'recentLists', Session.get('query')
     before: ->
       if Meteor.loggingIn()
         @render 'loading'
@@ -59,4 +61,4 @@ Router.map ->
     path: '/:username',
     before: ->
       Session.set('username', @params.username)
-      
+
