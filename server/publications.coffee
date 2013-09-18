@@ -18,13 +18,13 @@ Meteor.publish 'contributedLists', (username) ->
 Meteor.publish 'items', (listId) ->
   Item.find(listId: listId)
 
-LIMIT = 50
+LIMIT = 20
 
-Meteor.publish 'recentItems', (query) ->
+Meteor.publish 'recentLists', (query) ->
   if query
-    Item.find({$or: [
-        {text: {$regex: query, $options: 'i'}},
-        {listName: {$regex: query, $options: 'i'}}
-      ]}, {limit: LIMIT})
+    List.find({$or: [
+        {'mostRecentItem.text': {$regex: query, $options: 'i'}},
+        {name: {$regex: query, $options: 'i'}}
+      ]}, {sort: {createdAt: -1}, limit: LIMIT})
   else
-    Item.find({}, {sort: {createdAt: -1}, limit: LIMIT})
+    List.find({}, {sort: {createdAt: -1}, limit: LIMIT})

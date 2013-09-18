@@ -17,6 +17,7 @@ Template.newList.events
       open: open.is(':checked')
       slug: (name.val() || '').replace(/\W+/g, '-').toLowerCase()
       createdAt: new Date()
+      updatedAt: new Date()
 
     name.val ''
     Router.go('/lists')

@@ -1,12 +1,14 @@
 <template name='homeItem'>
-  <li>
-    <p class='text'>
-      <a href='/{{username}}/{{listSlug}}'>{{text}}</a>
-    </p>
-    <p class='listName'><a href='/{{username}}/{{listSlug}}'>{{listName}}</a></p>
-    <p class='whenAdded'>
-      {{date createdAt}}
-      by <a href='/{{itemUsername}}'>{{itemUsername}}</a>
-    </p>
-  </li>
+  {{#if mostRecentItem}}
+    <li>
+      <p class='text'>
+        <a href='/{{username}}/{{slug}}'>{{mostRecentItem.text}}</a>
+      </p>
+      <p class='listName'><a href='/{{username}}/{{slug}}'>{{name}}</a></p>
+      <p class='whenAdded'>
+        {{date updatedAt}}
+        by <a href='/{{mostRecentItem.username}}'>{{mostRecentItem.username}}</a>
+      </p>
+    </li>
+  {{/if}}
 </template>

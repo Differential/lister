@@ -54,3 +54,10 @@ Meteor.startup ->
      if (_.include(item.upvoters, user._id))
        item.pull({upvoters: user._id})
        item.update(score: item.score - 1)
+
+    touchList: (listId, itemId) ->
+        item = Item.first(itemId)
+        List.first(listId).update
+          updatedAt: new Date()
+          'mostRecentItem.username': item.username
+          'mostRecentItem.text': item.text

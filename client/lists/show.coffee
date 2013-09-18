@@ -35,7 +35,7 @@ Template.showList.events
       if $('#text').val().length > 2
         # There is a problem with minimongoid dates, which messes up sorting.
         # See https://github.com/Exygy/minimongoid/issues/6
-        Item._collection.insert(
+        itemId = Item._collection.insert(
           userId: Meteor.userId()
           itemUsername: Meteor.user().username
           listId: Session.get('listId'),
@@ -50,6 +50,9 @@ Template.showList.events
           listSlug: List.first(Session.get('listId')).slug
           listName: List.first(Session.get('listId')).name
         )
+
+        Meteor.call('touchList', Session.get('listId'), itemId)
+
         $('#text').val ''
         $('#text').focus()
         $('#url').val ''

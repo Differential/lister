@@ -2,8 +2,8 @@ Template.home.rendered = ->
   $('body').css('background-color', Session.get('color'))
 
 Template.home.helpers
-  items: ->
-    Item.find({}, sort:{createdAt:-1})
+  lists: ->
+    List.find({}, sort:{updatedAt:-1})
 
   query: ->
     Session.get('query')

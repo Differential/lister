@@ -3,7 +3,7 @@ Deps.autorun ->
   Meteor.subscribe 'contributedLists', Session.get('username')
   Meteor.subscribe 'currentList', Session.get('listId')
   Meteor.subscribe 'items', Session.get('listId')
-  Meteor.subscribe 'recentItems', Session.get('query')
+  Meteor.subscribe 'recentLists', Session.get('query')
 
   color = '#'
   _(6).times -> color += (Math.floor(Math.random() * 7))
