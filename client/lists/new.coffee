@@ -8,6 +8,11 @@ Template.newList.events
     name = $('[name=name]')
     open = $('[name=open]')
 
+    slug = (name.val() || '').replace(/\W+/g, '-').toLowerCase()
+
+    if slug.substr(-1) is '-'
+      slug = slug.substr(0, slug.length - 1)
+
     # There is a problem with minimongoid dates, which messes up sorting.
     # See https://github.com/Exygy/minimongoid/issues/6
     List._collection.insert
@@ -15,7 +20,7 @@ Template.newList.events
       username: Meteor.user().username
       name: name.val()
       open: open.is(':checked')
-      slug: (name.val() || '').replace(/\W+/g, '-').toLowerCase()
+      slug: slug
       createdAt: new Date()
       updatedAt: new Date()
 
