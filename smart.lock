@@ -11,8 +11,8 @@
       "collection-api": {},
       "minimongoid": {},
       "iron-router": {},
-      "reststop": {},
-      "npm": {}
+      "npm": {},
+      "reststop2": {}
     },
     "packages": {
       "router": {
@@ -32,8 +32,8 @@
       },
       "external-file-loader": {
         "git": "https://github.com/davidd8/meteor-external-file-loader.git",
-        "tag": "v0.1.3",
-        "commit": "300d6ee5ea18f68712453a4476cb1da0093f912a"
+        "tag": "v0.1.4",
+        "commit": "352694a7cf906b8241161c2fd1435161c1d5409f"
       },
       "sitemaps": {
         "git": "https://github.com/gadicohen/meteor-sitemaps.git",
@@ -52,23 +52,23 @@
       },
       "minimongoid": {
         "git": "https://github.com/Exygy/minimongoid.git",
-        "tag": "v0.7.8",
-        "commit": "e90f794ffb1dfb60ca6d97c6803afd8986d62694"
+        "tag": "v0.8.0",
+        "commit": "4f62f61ad5a34688e2b547dc843d76de4a254f7d"
       },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
         "tag": "v0.5.4",
         "commit": "3e0e22ff85630b7503d0daa1538c6d90abb84020"
       },
-      "reststop": {
-        "git": "https://github.com/gkoberger/meteor-reststop.git",
-        "tag": "v0.4.0",
-        "commit": "653e6d5354ed1b37095b19ef67021c01ce59827e"
-      },
       "npm": {
         "git": "https://github.com/arunoda/meteor-npm.git",
         "tag": "v0.2.2",
         "commit": "ad83acff83385d5ea05997c8bbc2d7493ba4c04e"
+      },
+      "reststop2": {
+        "git": "https://github.com/BeDifferential/reststop2.git",
+        "tag": "v0.4.1",
+        "commit": "335b378c31e6f9108465197e7ae5e3453b541823"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",

@@ -9,6 +9,7 @@
     "collection-api": {},
     "minimongoid": {},
     "iron-router": {},
-    "npm": {}
+    "npm": {},
+    "reststop2": {}
   }
 }
