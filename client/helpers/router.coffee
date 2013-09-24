@@ -62,3 +62,6 @@ Router.map ->
     before: ->
       Session.set('username', @params.username)
 
+Router.configure
+  after: ->
+    window._gaq.push ['_trackPageview']
