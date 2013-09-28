@@ -19,7 +19,7 @@ Template.listsIndex.helpers
       List.find(userId: Meteor.userId()).count() > 0
 
   contributedLists: ->
-    List.find(userId: { $ne: Meteor.userId() })
+    List.where(userId: { $ne: Meteor.userId() })
 
   hasContributedToLists: ->
     List.find(userId: { $ne: Meteor.userId() }).count() > 0

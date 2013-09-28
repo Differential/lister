@@ -6,21 +6,17 @@ Template.item.helpers
     @.userId == Meteor.userId()
 
   'isOwner': ->
-    Meteor.user() && (@userId == Meteor.userId() || @username == Meteor.user().username)
+    @isOwner Meteor.user()
 
   'canVote': ->
-    Meteor.user() && @userId != Meteor.userId()
+    @canVote Meteor.user()
 
   'upvoteClass': ->
-    userId = Meteor.userId()
-
-    if (userId && _.include(this.upvoters, userId))
+    if @hasUpvoted Meteor.user()
       return 'voted'
 
   'downvoteClass': ->
-    userId = Meteor.userId()
-
-    if (userId && _.include(this.downvoters, userId))
+    if @hasDownvoted Meteor.user()
       return 'voted'
 
 Template.item.events

@@ -6,7 +6,7 @@ Template.listItem.helpers
     @username
 
   isOwner: ->
-    Meteor.user() && (@.userId == Meteor.userId() || @.username == Meteor.user().username)
+    @isOwner Meteor.user()
 
 Template.listItem.events
   'click .delete': ->

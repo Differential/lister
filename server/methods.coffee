@@ -24,15 +24,7 @@ Meteor.startup ->
      if (! item)
        throw new Meteor.Error(422, 'Item not found')
 
-     if (_.include(item.upvoters, user._id))
-       item.pull(upvoters: user._id)
-       item.update(score: item.score - 1)
-     else
-       item.push(upvoters: user._id)
-       item.update(score: item.score + 1)
-     if (_.include(item.downvoters, user._id))
-       item.pull(downvoters: user._id)
-       item.update(score: item.score + 1)
+     item.upvote Meteor.user()
 
    downvote: (itemId) ->
      user = Meteor.user()
@@ -45,19 +37,7 @@ Meteor.startup ->
      if (! item)
        throw new Meteor.Error(422, 'Item not found')
 
-     if (_.include(item.downvoters, user._id))
-       item.pull(downvoters: user._id)
-       item.update(score: item.score + 1)
-     else
-       item.push(downvoters: user._id)
-       item.update(score: item.score - 1)
-     if (_.include(item.upvoters, user._id))
-       item.pull({upvoters: user._id})
-       item.update(score: item.score - 1)
+      item.downvote Meteor.user()
 
     touchList: (listId, itemId) ->
-        item = Item.first(itemId)
-        List.first(listId).update
-          updatedAt: new Date()
-          'mostRecentItem.username': item.itemUsername
-          'mostRecentItem.text': item.text
+      List.first(listId).touch Item.first(itemId)
