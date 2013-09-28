@@ -61,8 +61,8 @@
       },
       "reststop2": {
         "git": "https://github.com/BeDifferential/reststop2.git",
-        "tag": "v0.4.2",
-        "commit": "124f2e34d1dc2eac793144b30c7dc1700317d3f9"
+        "tag": "v0.5.0",
+        "commit": "a4fecbb0a43552296a42003c2e8752a6bd20eba3"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",
