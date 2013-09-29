@@ -7,16 +7,13 @@ Template.showList.helpers
     List.first(Session.get('listId'))
 
   items: ->
-    list = List.first(Session.get('listId'))
-    list.related('items', {sort: {score: -1}}) if list
+    @related 'items', {sort: {score: -1}}
 
   canAdd: ->
-    list = List.first(Session.get('listId'))
-    list.canAddItem Meteor.user()
+    @canAddItem Meteor.user()
 
   couldAdd: ->
-    list = List.first(Session.get('listId'))
-    !Meteor.user() && list && list.open
+    !Meteor.user() && @open
 
 Template.showList.events
   'submit .add-item': (event) ->
@@ -25,18 +22,18 @@ Template.showList.events
     item = Item.create
       userId: Meteor.userId()
       itemUsername: Meteor.user().username
-      listId: Session.get('listId'),
+      listId: @id,
       text: $('#text').val()
       url: $('#url').val()
       createdAt: new Date()
-      username: List.first(Session.get('listId')).username
-      listSlug: List.first(Session.get('listId')).slug
-      listName: List.first(Session.get('listId')).name
+      username: @username
+      listSlug: @slug
+      listName: @name
 
     if item.errors
       return alert 'Be more descriptive.'
 
-    Meteor.call('touchList', Session.get('listId'), item.id)
+    Meteor.call('touchList', @id, item.id)
 
     $('#text').val ''
     $('#text').focus()
