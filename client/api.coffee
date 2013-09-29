@@ -26,3 +26,8 @@ Template.api.events
 
   'submit form': (e) ->
     e.preventDefault()
+
+  'click [target=_blank]': (e) ->
+    e.preventDefault()
+    url = $(e.target).attr 'href'
+    window.open url
