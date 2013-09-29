@@ -1,7 +1,6 @@
 Template.showList.rendered = ->
   $('body').css('background-color', Session.get('color'))
   Session.set('name', List.first(Session.get('listId')).name)
-  document.title = Session.get('name') + " ~ by " + Session.get('username') + " ~ lister.io"
 
 Template.showList.helpers
   list: ->

@@ -10,6 +10,7 @@ Router.map ->
 
       Session.set('listId', null)
       Session.set('query', '')
+      document.title = "lister ~ Easy public shareable lists"
 
   @route 'listsIndex',
     path: '/lists'
@@ -24,6 +25,7 @@ Router.map ->
 
       Session.set('username', Meteor.user().username)
       Session.set('listId', null)
+      document.title = Session.get('username') + "'s lists ~ lister.io"
 
   @route 'newList',
     path: '/new',
@@ -37,6 +39,7 @@ Router.map ->
         return @redirect('/')
 
       Session.set('username', Meteor.user().username)
+      document.title = "Add list ~ lister.io"
 
   @route 'showList',
     path: '/:username/:slug',
@@ -44,6 +47,8 @@ Router.map ->
       Session.set('username', @params.username)
       Meteor.call 'findListId', @params.username, @params.slug, (err, listId) ->
         Session.set('listId', listId)
+    after: ->
+      document.title = Session.get('name') + " ~ by " + Session.get('username') + " ~ lister.io"
 
   @route 'api',
     path: '/api',
@@ -61,6 +66,7 @@ Router.map ->
     path: '/:username',
     before: ->
       Session.set('username', @params.username)
+      document.title = Session.get('username') + "'s lists ~ lister.io"
 
 Router.configure
   after: ->
