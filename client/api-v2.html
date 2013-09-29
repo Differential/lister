@@ -1,0 +1,169 @@
+<template name="apiv2">
+  <div class="new-list">
+    <h1>API</h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="span10 offset1 api">
+        <div>
+          <h3>Examples</h3>
+          <p>
+            Get all lists. <a href="http://lister.io/api/v2/lists" target="_blank">Try it now!</a><br>
+            <code class="full">
+              $ curl http://lister.io/api/v2/lists
+            </code>
+          </p>
+          <p>
+            Create a new list.
+            <code class="full">
+              $ curl -X POST -H "X-Login-Token: v93mQ5hn9uEShxEPz" -H "X-User-Id: SrwPgeDWuZnTmE4Hg" -d "name=my list" http://lister.io/api/v2/lists
+            </code>
+          </p>
+          <p>
+            Add an item to a list.
+            <code class="full">
+              $ curl -X POST -H "X-Login-Token: v93mQ5hn9uEShxEPz" -H "X-User-Id: SrwPgeDWuZnTmE4Hg" -d "text=my item&amp;url=google.com" http://lister.io/api/v2/lists/uARxGxREosjRKDcgc/items
+            </code>
+          </p>
+          <h3>Auth</h3>
+          <table class="table apis">
+            <tbody>
+              <tr>
+                <th>Method</th>
+                <th>URI</th>
+                <th>Params</th>
+                <th>Authenticated?</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td><code>POST</code></td>
+                <td><code>/api/v2/login</code></td>
+                <td>
+                  <table class="sub">
+                    <tr><td><code>user</code></td><td><em>required</em></td>
+                    <tr><td><code>password</code></td><td><em>required</em></td>
+                  </table>
+                </td>
+                <td><em>no</em></td>
+                <td>
+                  Login user. Returns a security token to be used on all
+                  subsequent requests.
+                </td>
+              </tr>
+              <tr>
+                <td><code>GET</code></td>
+                <td><code>/api/v2/logout</code></td>
+                <td><em>none</em></td>
+                <td><em>yes</em></td>
+                <td>
+                  Logout user. Deletes the security token from the system.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h3>Lists</h3>
+          <table class="table apis">
+            <tbody>
+              <tr>
+                <th>Method</th>
+                <th>URI</th>
+                <th>Params</th>
+                <th>Authenticated?</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td><code>GET</code></td>
+                <td><code>/api/v2/lists</code></td>
+                <td><em>none</em></td>
+                <td><em>no</em></td>
+                <td>Get all lists</td>
+              </tr>
+              <tr>
+                <td><code>GET</code></td>
+                <td><code>/api/v2/users/:id/lists</code></td>
+                <td><em>none</em></td>
+                <td><em>no</em></td>
+                <td>Get lists for user <code>:id</code></td>
+              </tr>
+              <tr>
+                <td><code>GET</code></td>
+                <td><code>/api/v2/lists/:id</code></td>
+                <td><em>none</em></td>
+                <td><em>no</em></td>
+                <td>Get attributes and items for list <code>:id</code></td>
+              </tr>
+              <tr>
+                <td><code>POST</code></td>
+                <td><code>/api/v2/lists</code></td>
+                <td>
+                  <table class="sub">
+                    <tr><td><code>name</code></td><td><em>required</em></td>
+                    <tr><td><code>open</code></td><td><em>optional</em></td>
+                  </table>
+                </td>
+                <td><em>yes</em></td>
+                <td>
+                  Create a list with <code>name</code>. <code>open</code>
+                  determines if anyone can add an item to the list, and by
+                  default is <code>false</code>
+                </td>
+              </tr>
+              <tr>
+                <td><code>DELETE</code></td>
+                <td><code>/api/v2/lists/:id</code></td>
+                <td><em>none</em></td>
+                <td><em>yes</em></td>
+                <td>Delete list <code>:id</code></td>
+              </tr>
+            </tbody>
+          </table>
+          <h3>Items</h3>
+          <table class="table apis">
+            <tbody>
+              <tr>
+                <th>Method</th>
+                <th>URI</th>
+                <th>Params</th>
+                <th>Authenticated?</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td><code>POST</code></td>
+                <td><code>/api/v2/lists/:id/items</code></td>
+                <td>
+                  <table class="sub">
+                    <tr><td><code>text</code></td><td><em>required</em></td>
+                    <tr><td><code>url</code></td><td><em>optional</em></td>
+                  </table>
+                </td>
+                <td><em>yes</em></td>
+                <td>Add item to list <code>:id</code></td>
+              </tr>
+              <tr>
+                <td><code>PUT</code></td>
+                <td><code>/api/v2/items/:id</code></td>
+                <td>
+                  <table class="sub">
+                    <tr><td><code>vote</code></td><td><em>required</em></td>
+                  </table>
+                </td>
+                <td><em>yes</em></td>
+                <td>
+                  Upvote or downvote item <code>:id</code>. <code>vote</code> must have
+                  a value of either <code>up</code> or <code>down</code>.
+                </td>
+              </tr>
+              <tr>
+                <td><code>DELETE</code></td>
+                <td><code>/api/v2/items/:id</code></td>
+                <td><em>none</em></td>
+                <td><em>yes</em></td>
+                <td>Delete item <code>:id</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

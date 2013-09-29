@@ -50,7 +50,19 @@ Router.map ->
     after: ->
       document.title = Session.get('name') + " ~ by " + Session.get('username') + " ~ lister.io"
 
-  @route 'api',
+  @route 'apiv1',
+    path: '/api-v1',
+    before: ->
+      if Meteor.loggingIn()
+        @render 'loading'
+        return @stop()
+
+      if !Meteor.user()
+        return @redirect('/')
+
+      Session.set('username', Meteor.user().username)
+
+  @route 'apiv2',
     path: '/api',
     before: ->
       if Meteor.loggingIn()

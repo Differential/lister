@@ -1,4 +1,4 @@
-Template.api.rendered = ->
+Template.apiv1.rendered = ->
   $('body').css('background-color', Session.get('color'))
 
   if /iPad|iPhone/i.test(navigator.userAgent)
@@ -14,10 +14,10 @@ Template.api.rendered = ->
       $('#copy-trigger').tooltip('hide')
     , 1000
 
-Template.api.helpers
+Template.apiv1.helpers
   'key': -> if Meteor.user().profile then Meteor.user().profile.apiKey
 
-Template.api.events
+Template.apiv1.events
   'click .create-new-key': (e) ->
     e.preventDefault()
     Meteor.call('updateApiKey', (err, key) ->
