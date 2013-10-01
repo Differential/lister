@@ -106,7 +106,7 @@ RESTstop.add 'lists/:id/items', { method: 'POST', require_login: true }, () ->
     itemUsername: @user.username
     listId: list.id
     text: @params.text
-    url: @params.url
+    url: @params.url || ''
     createdAt: new Date()
     username: list.username
     listSlug: list.slug
