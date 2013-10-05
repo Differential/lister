@@ -1,19 +1,2 @@
 #!/bin/bash
-
-# let's start fresh
-rm -rf .demeteorized
-rm /tmp/newfile
-
-# run + cd
-demeteorizer
-cd .demeteorized
-
-# sed hacks
-sed 's/"mongodb": "1.3.7-meteor"/"mongodb": "1.3.12"/' package.json >> /tmp/newfile
-cp /tmp/newfile package.json && rm /tmp/newfile
-sed 's/"npm": "1.2.2"/"npm": "1.2.32"/' package.json >> /tmp/newfile
-cp /tmp/newfile package.json
-
-# deploy + go back to project dir
 modulus deploy -p lister
-cd ..
