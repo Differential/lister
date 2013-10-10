@@ -53,26 +53,12 @@ Router.map ->
   @route 'apiv1',
     path: '/api-v1',
     before: ->
-      if Meteor.loggingIn()
-        @render 'loading'
-        return @stop()
-
-      if !Meteor.user()
-        return @redirect('/')
-
-      Session.set('username', Meteor.user().username)
+      document.title = "API ~ lister.io"
 
   @route 'apiv2',
     path: '/api',
     before: ->
-      if Meteor.loggingIn()
-        @render 'loading'
-        return @stop()
-
-      if !Meteor.user()
-        return @redirect('/')
-
-      Session.set('username', Meteor.user().username)
+      document.title = "API ~ lister.io"
 
   @route 'listsIndex',
     path: '/:username',
