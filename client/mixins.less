@@ -33,3 +33,11 @@
   background: -webkit-linear-gradient(top, @topColor 0%, @bottomColor 100%);
   background: linear-gradient(to bottom, @topColor 0%, @bottomColor 100%);
 }
+
+.rotate(@degrees) {
+  -webkit-transform: rotate(@degrees);
+     -moz-transform: rotate(@degrees);
+      -ms-transform: rotate(@degrees);
+       -o-transform: rotate(@degrees);
+          transform: rotate(@degrees);
+}

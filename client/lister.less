@@ -1,4 +1,6 @@
 @import 'variables';
+@import 'mixins';
+@import 'animate.min.css';
 
 body {
   color: #fff;
@@ -134,6 +136,25 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
     #query {
         margin-top: 40px;
     }
+  }
+
+  .container {
+    position: relative;
+  }
+}
+
+#app-store {
+  margin: auto;
+  position: relative;
+  width: 152px;
+  display: none;
+
+  a {
+    position: absolute;
+    top: 20px;
+    left: 200px;
+    width: 100%;
+    .rotate(10deg);
   }
 }
 
