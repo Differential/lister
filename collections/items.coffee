@@ -23,7 +23,7 @@ class @Item extends Minimongoid
     if not user
       return false
 
-    @userId is user._id or @username is user.userName
+    @userId is user._id or @username is user.username
 
   canVote: (user) ->
     if not user
