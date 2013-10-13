@@ -67,5 +67,6 @@ Router.map ->
       document.title = Session.get('username') + "'s lists ~ lister.io"
 
 Router.configure
+  layout: 'lister'
   after: ->
     window._gaq.push ['_trackPageview']
