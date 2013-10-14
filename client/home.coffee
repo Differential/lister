@@ -2,7 +2,7 @@ Template.home.rendered = ->
   $('body').css('background-color', Session.get('color'))
 
   setTimeout ->
-    $('#app-store').show().addClass('animated bounceInDown')
+    $('#app-store').fadeIn(1000)
   , 1000
 
 Template.home.helpers
