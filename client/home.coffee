@@ -2,7 +2,7 @@ Template.home.rendered = ->
   $('body').css('background-color', Session.get('color'))
 
   setTimeout ->
-    $('#app-store').fadeIn(1000)
+    $('#app-store a').css('top', '20px')
   , 1000
 
 Template.home.helpers

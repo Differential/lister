@@ -4,13 +4,11 @@
 
 body {
   color: #fff;
-  transition: background 1s;
+  .transitionEase(background 1s);
 }
 
 a {
-  -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  .transitionEase(all 0.2s);
   color: #fff;
   text-decoration: none !important;
 
@@ -147,11 +145,11 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
   margin: auto;
   position: relative;
   width: 152px;
-  display: none;
 
   a {
+    .transitionEase(top 1s);
     position: absolute;
-    top: 20px;
+    top: -1000px;
     left: 200px;
     width: 100%;
     .rotate(10deg);
