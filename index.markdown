@@ -3,7 +3,7 @@ layout: default
 username: BeDifferential
 repo: lister
 version:
-desc: Easy public shareable lists.
+desc: App for easy public sharable lists.
 
 ---
 # [Lister.io](http://lister.io)
