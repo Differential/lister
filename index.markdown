@@ -2,7 +2,7 @@
 layout: default
 username: BeDifferential
 repo: lister
-version: 0.3.0
+version:
 desc: Easy public shareable lists.
 
 ---
