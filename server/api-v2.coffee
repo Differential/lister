@@ -115,6 +115,8 @@ RESTstop.add 'lists/:id/items', { method: 'POST', require_login: true }, () ->
   if item.errors
     return [400, popError item.errors]
 
+  list.touch item
+
   item
 
 #
