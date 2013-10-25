@@ -59,7 +59,7 @@ RESTstop.add 'lists', { method: 'POST', require_login: true }, () ->
   list = List.create
     userId: @user._id
     username: @user.username
-    name: @params.name
+    name: decodeURIComponent @params.name
     open: !! @params.open
     createdAt: new Date()
     updatedAt: new Date()
@@ -105,7 +105,7 @@ RESTstop.add 'lists/:id/items', { method: 'POST', require_login: true }, () ->
     userId: @user._id
     itemUsername: @user.username
     listId: list.id
-    text: @params.text
+    text: decodeURIComponent @params.text
     url: @params.url || ''
     createdAt: new Date()
     username: list.username
