@@ -31,11 +31,18 @@ class @List extends Minimongoid
 
     @userId is user._id or @open
 
+  mostRecentItem: ->
+    item = @items({sort: {createdAt: -1}})[0]
+
+    if item
+      return {
+        username: item.itemUsername,
+        text: item.text
+      }
+
   touch: (item) ->
     @update
       updatedAt: new Date()
-      'mostRecentItem.username': item.itemUsername
-      'mostRecentItem.text': item.text
 
 List._collection.allow(
   insert: (userId, list) ->

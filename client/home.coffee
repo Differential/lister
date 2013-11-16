@@ -7,7 +7,7 @@ Template.home.rendered = ->
 
 Template.home.helpers
   lists: ->
-    List.find({}, sort:{updatedAt:-1})
+    List.where({}, sort:{updatedAt:-1})
 
   items: ->
     Item.find()
@@ -20,3 +20,14 @@ Template.home.events
     event.preventDefault()
     query = $(event.target).val()
     Session.set('query', query)
+
+Template.homeList.helpers
+  mostRecentItemUser: ->
+    item = @mostRecentItem()
+    if item
+      item.username
+
+  mostRecentItemText: ->
+    item = @mostRecentItem()
+    if item
+      item.text

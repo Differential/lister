@@ -1,8 +1,10 @@
 Router.map ->
   @route 'home',
     path: '/'
-    waitOn: ->
+    waitOn: -> [
       Meteor.subscribe 'recentLists', Session.get('query')
+      Meteor.subscribe 'recentItems'
+    ]
     before: ->
       if Meteor.loggingIn()
         @render 'loading'
