@@ -5,7 +5,8 @@ Deps.autorun ->
   Meteor.subscribe 'items', Session.get('listId')
 
   color = '#'
-  _(6).times -> color += (Math.floor(Math.random() * 7))
+  _(6).times -> color += (15-Math.floor(Math.random() * 4)).toString(16)
+  console.log color
   Session.set('color', color)
 
   if Meteor.user() && Meteor.user().profile && Meteor.user().profile.color

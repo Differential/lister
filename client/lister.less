@@ -2,17 +2,17 @@
 @import 'mixins';
 
 body {
-  color: #fff;
+  color: #333;
   .transitionEase(background 1s);
 }
 
 a {
   .transitionEase(all 0.2s);
-  color: #fff;
+  color: #333;
   text-decoration: none !important;
 
   &:hover {
-    color: rgba(255,255,255,0.7);
+    color: rgba(0,0,0,0.7);
   }
 }
 
@@ -29,12 +29,12 @@ code.full {
 
 .browser-warning {
   background: #BD3535;
-  color: #fff;
+  color: #333;
   padding: 0.5em 0;
   text-align: center;
 
    a {
-    color: #fff;
+    color: #333;
     text-decoration: underline;
   }
 }
@@ -43,16 +43,15 @@ header {
   padding-top: 20px;
 
   a {
-    color: #fff;
+    color: #333;
     font-size: 20px;
-    font-weight: 200;
     text-decoration: none !important;
     @media (max-width: 480px) {
       font-size: 1em;
     }
 
     &:hover {
-      color: rgba(255,255,255,0.7);
+      color: rgba(0,0,0,0.7);
     }
   }
 
@@ -98,7 +97,7 @@ header {
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
   font-size: 16px;
   line-height: 22px;
-  font-weight: 300;
+  font-weight: 400;
   height: 25px;
   box-shadow: none;
   -webkit-appearance: none;
@@ -120,7 +119,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
   p {
     font-size: 24px;
     line-height: 32px;
-    font-weight: 100;
+    font-weight: 400;
   }
 
   p.subhead {
@@ -179,7 +178,7 @@ ul.list {
     p {
       font-size: 24px;
       line-height: 32px;
-      font-weight: 100;
+      font-weight: 400;
       margin: 0;
     }
     p.text {
@@ -240,7 +239,6 @@ h3.share-list {
 
   h2 {
     text-align: center;
-    background: rgba(0,0,0,0.2);
     padding: 40px;
     margin: 50px auto;
   }
@@ -254,8 +252,6 @@ h3.share-list {
       font-weight: 400;
       list-style: none;
       a {
-        color: #FFF;
-
         &:hover {
           text-decoration: none;
           opacity: 0.7;
@@ -268,27 +264,27 @@ h3.share-list {
       a.vote:hover {
         opacity: 1 !important;
         i {
-          color: rgba(255,255,255, 0.8);
+          color: rgba(0,0,0,0.8);
         }
       }
       a.user-link {
-        color: rgba(255,255,255,0.4);
+        color: rgba(0,0,0,0.4);
       }
       span {
         font-size: 70%;
-        color: rgba(255,255,255,0.4);
+        color: rgba(0,0,0,0.4);
       }
     }
   }
 
   form.add-item {
     padding: 15px;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(0,0,0,0.15);
     p {
       text-align: center;
       font-size: 24px;
       line-height: 32px;
-      font-weight: 100;
+      font-weight: 400;
     }
     input {
       margin-bottom: 10px;
@@ -313,10 +309,10 @@ div.share {
   text-align: center;
   margin: 40px 0;
   a {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(0,0,0,0.15);
   }
   a:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(0,0,0, 0.3);
   }
   .btn-group {
     border: 0px;
@@ -338,10 +334,6 @@ div.share {
   font-size: 20px;
   li {
     padding: 5px;
-    color: rgba(255, 255, 255, 0.5);
-    a {
-      color:  rgba(255, 255, 255, 0.9);
-    }
   }
 }
 
@@ -352,7 +344,7 @@ div.share {
 footer {
   .navbar {
     padding: 10px 0;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(255,255,255,0.5);
   }
 
   ul {
@@ -367,18 +359,11 @@ footer {
       font-size: 16px;
 
       a {
-        color: #fff;
-        font-weight: 200;
+        font-weight: 400;
         border-bottom: none;
         text-decoration: none;
         @media (max-width: 480px) {
           font-size: 0.8em;
-        }
-
-        &:hover {
-          text-decoration: none;
-          opacity: 0.7;
-          color: rgba(255,255,255,1);
         }
       }
 
@@ -389,10 +374,23 @@ footer {
       }
     }
   }
+
+  input {
+    padding: 3px;
+    background: rgba(0,0,0,0.1);
+    color: rgba(0,0,0,0.3);
+    border: none;
+    width: 60px;
+    text-align: center;
+  }
+  input:hover, input:focus {
+    background: rgba(0,0,0,0.3);
+    color: rgba(255,255,255,0.9);
+  }
 }
 
 .muted {
-  color: rgba(255,255,255, 0.3);
+  color: rgba(255,255,255,0.3);
 }
 
 .newList {
@@ -411,21 +409,6 @@ footer {
   line-height: 30px;
   padding: 30px;
   background: rgba(0,0,0,0.5);
-}
-
-footer {
-  input {
-    padding: 3px;
-    background: #111;
-    border: none;
-    color: #333;
-    width: 60px;
-    text-align: center;
-  }
-  input:hover, input:focus {
-    background: #222;
-    color: #999;
-  }
 }
 
 .add-first-list {
