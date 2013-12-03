@@ -4,10 +4,10 @@ Deps.autorun ->
   Meteor.subscribe 'currentList', Session.get('listId')
   Meteor.subscribe 'items', Session.get('listId')
 
-  color = '#'
-  _(6).times -> color += (15-Math.floor(Math.random() * 4)).toString(16)
+  color = ''
+  _(4).times -> color += (15-Math.floor(Math.random() * 4)).toString(16)
   console.log color
-  Session.set('color', color)
+  Session.set('color', "#CC#{color}")
 
   if Meteor.user() && Meteor.user().profile && Meteor.user().profile.color
     Session.set('color', Meteor.user().profile.color)
