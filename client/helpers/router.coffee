@@ -16,6 +16,10 @@ Router.map ->
 
   @route 'listsIndex',
     path: '/lists'
+    waitOn: -> [
+      Meteor.subscribe 'lists', Session.get('username')
+      Meteor.subscribe 'contributedLists', Session.get('username')
+    ]
     before: ->
       if Meteor.loggingIn()
         @render 'loading'
@@ -45,6 +49,10 @@ Router.map ->
 
   @route 'showList',
     path: '/:username/:slug',
+    waitOn: -> [
+      Meteor.subscribe 'currentList', Session.get('listId')
+      Meteor.subscribe 'items', Session.get('listId')
+    ]
     before: ->
       Session.set('username', @params.username)
       Meteor.call 'findListId', @params.username, @params.slug, (err, listId) ->
@@ -64,6 +72,10 @@ Router.map ->
 
   @route 'listsIndex',
     path: '/:username',
+    waitOn: -> [
+      Meteor.subscribe 'lists', Session.get('username')
+      Meteor.subscribe 'contributedLists', Session.get('username')
+    ]
     before: ->
       Session.set('username', @params.username)
       document.title = Session.get('username') + "'s lists ~ lister.io"
