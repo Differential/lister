@@ -5,11 +5,20 @@ Template.item.helpers
   ownItem: ->
     @.userId == Meteor.userId()
 
+  'isDownvotable': ->
+    list = List.first @listId
+    list.downvotes
+
   'isOwner': ->
     @isOwner Meteor.user()
 
   'canVote': ->
     @canVote Meteor.user()
+
+  'onlyClass': ->
+    list = List.first @listId
+    if not list.downvotes
+      return 'only'
 
   'upvoteClass': ->
     if @hasUpvoted Meteor.user()

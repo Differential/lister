@@ -16,12 +16,12 @@ Meteor.startup ->
    upvote: (itemId) ->
      user = Meteor.user()
 
-     if (! user)
+     if not user
        throw new Meteor.Error(401, "You need to login to upvote")
 
      item = Item.first(itemId)
 
-     if (! item)
+     if not item
        throw new Meteor.Error(422, 'Item not found')
 
      item.upvote Meteor.user()
@@ -29,15 +29,19 @@ Meteor.startup ->
    downvote: (itemId) ->
      user = Meteor.user()
 
-     if (! user)
+     if not user
        throw new Meteor.Error(401, "You need to login to upvote")
 
      item = Item.first(itemId)
 
-     if (! item)
-       throw new Meteor.Error(422, 'Item not found')
+     if not item
+       throw new Meteor.Error(404, 'Item not found')
 
-      item.downvote Meteor.user()
+     list = List.first item.listId
+     if not list.downvotes
+       throw new Meteor.Error(403, 'List not downvotable')
+
+     item.downvote Meteor.user()
 
     touchList: (listId, itemId) ->
       List.first(listId).touch Item.first(itemId)
