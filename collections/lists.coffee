@@ -19,6 +19,9 @@ class @List extends Minimongoid
     if not @name
       @error 'name', "'name' is required"
 
+    if @limit and not /\d+/.test(@maxvotes)
+      @error 'maxvotes', "'maxvotes' must be numeric"
+
   isOwner: (user) ->
     if not user
       return false

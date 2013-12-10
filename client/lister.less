@@ -108,6 +108,10 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
   }
 }
 
+input[type=text] {
+  padding: 10px 6px;
+}
+
 .home {
   h1 {
     text-align: center;
@@ -230,10 +234,6 @@ ul.list {
 h3.share-list {
     text-align: center;
   }
-
-.new-list {
-  text-align: center;
-}
 
 .list {
 
@@ -394,12 +394,24 @@ footer {
 }
 
 .newList {
-  padding-top: 60px;
-  input[type='text'] {
-    margin: 0 10px;
+  padding-top: 30px;
+  input[type=text], label, button {
+    margin-top: 10px;
   }
-  button {
-    margin: 0 10px;
+  .options-link a {
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.3);
+  }
+  .max-votes {
+    position: relative;
+
+    input[type=text] {
+      position: absolute;
+      top: -15px;
+      margin-left: 5px;
+      width: 25px;
+      height: 10px;
+    }
   }
 }
 
