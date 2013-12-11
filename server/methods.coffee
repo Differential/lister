@@ -38,7 +38,7 @@ Meteor.startup ->
        throw new Meteor.Error(404, 'Item not found')
 
      list = List.first item.listId
-     if not list.downvotes
+     if not list.downvotable
        throw new Meteor.Error(403, 'List not downvotable')
 
      item.downvote Meteor.user()

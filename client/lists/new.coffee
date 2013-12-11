@@ -26,7 +26,7 @@ Template.newList.events
     name = $('[name=name]')
     open = $('[name=open]')
     hidden = $('[name=hidden]')
-    downvotes = $('[name=downvotes]')
+    downvotable = $('[name=downvotable]')
     limit = $('[name=limit]')
     maxvotes = $('[name=maxvotes]')
 
@@ -36,7 +36,7 @@ Template.newList.events
       name: name.val()
       open: open.is(':checked')
       hidden: hidden.is(':checked')
-      downvotes: downvotes.is(':checked')
+      downvotable: downvotable.is(':checked')
       limit: limit.is(':checked')
       maxvotes: maxvotes.val()
       createdAt: new Date()
