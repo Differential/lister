@@ -5,7 +5,7 @@
     </p>
     <p class='actions'>
       {{#if canVote}}
-        <a class='upvote {{onlyClass}} {{upvoteClass}}'><i class='icon-arrow-up muted'></i></a>
+        <a class='upvote {{upvoteClass}}'><i class='{{onlyClass}} icon-arrow-up muted'></i></a>
         {{#if isDownvotable}}
           <a class='downvote {{downvoteClass}}'><i class='icon-arrow-down muted'></i></a>
         {{/if}}
@@ -13,7 +13,7 @@
         {{#if ownItem}}
           &nbsp;
         {{else}}
-          <i class='icon-arrow-up muted'></i>
+          <i class='{{onlyClass}} icon-arrow-up muted'></i>
           {{#if isDownvotable}}
             <i class='icon-arrow-down muted'></i>
           {{/if}}
