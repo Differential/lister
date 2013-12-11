@@ -1,7 +1,7 @@
 <template name='item'>
   <li>
     <p class='score'>
-      {{score}}
+      <a href="javascript:void(0);"{{#if voters}} data-toggle="tooltip" title="{{voters}}"{{/if}}>{{score}}</a>
     </p>
     <p class='actions'>
       {{#if canVote}}

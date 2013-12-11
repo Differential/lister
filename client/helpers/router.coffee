@@ -52,6 +52,7 @@ Router.map ->
     waitOn: -> [
       Meteor.subscribe 'currentList', Session.get('listId')
       Meteor.subscribe 'items', Session.get('listId')
+      Meteor.subscribe 'voters', Session.get('listId')
     ]
     before: ->
       Session.set('username', @params.username)

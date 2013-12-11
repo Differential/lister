@@ -35,6 +35,17 @@ Meteor.publish 'items', (listId) ->
   Item.find
     listId: listId
 
+Meteor.publish 'voters', (listId) ->
+  items = Item.where listId: listId
+
+  ids = []
+  _.each items, (item) ->
+    ids = _.compact(_.union(ids, item.upvoters, item.downvoters))
+
+  Meteor.users.find
+    _id:
+      $in: ids
+
 LIMIT = 20
 
 Meteor.publish 'recentLists', (query) ->

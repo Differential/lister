@@ -1,9 +1,11 @@
 Template.item.rendered = ->
   $('body').css('background-color', Session.get('color'))
+  $('.score a').tooltip
+    html: true
 
 Template.item.helpers
-  ownItem: ->
-    @.userId == Meteor.userId()
+  'ownItem': ->
+    @userId == Meteor.userId()
 
   'isDownvotable': ->
     list = List.first @listId
@@ -27,6 +29,20 @@ Template.item.helpers
   'downvoteClass': ->
     if @hasDownvoted Meteor.user()
       return 'voted'
+
+  'voters': ->
+    upvoterIds = _.compact @upvoters
+    upvoters = Meteor.users.find({ _id: { $in: upvoterIds }}).fetch()
+    ups = _.pluck(upvoters, 'username').join('<br>')
+
+    downvoterIds = _.compact @downvoters
+    downvoters = Meteor.users.find({ _id: { $in: downvoterIds }}).fetch()
+    downs = _.pluck(downvoters, 'username').join('<br>')
+
+    if ups.length and downs.length
+      return "#{ups}<br>&#8961;<br>#{downs}"
+
+    "#{ups}#{downs}"
 
 Template.item.events
   'click .delete': ->
