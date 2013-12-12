@@ -24,7 +24,7 @@ popError = (errors) ->
 #
 
 RESTstop.add 'lists', method: 'GET', () ->
-  lists = List.all()
+  lists = List.where hidden: false
   cutFields lists, 'userId'
   [ lists ]
 
@@ -33,7 +33,14 @@ RESTstop.add 'users/:id/lists', method: 'GET', () ->
   if not user
     return 404
 
-  lists = List.where userId: @params.id
+  parms =
+    userId: @params.id
+    hidden: false
+
+  if @user and @user._id is @params.id
+    delete parms.hidden
+
+  lists = List.where parms
   cutFields lists, 'userId'
   [ lists ]
 
@@ -135,10 +142,16 @@ RESTstop.add 'items/:id', { method: 'PUT', require_login: true }, () ->
   if not item.canVote @user
     return 403
 
-  if @params.vote == 'up'
-    item.upvote @user
-  else if @params.vote == 'down'
-    item.downvote @user
+  if @params.vote is 'up'
+    return item.upvote @user
+
+  list = List.first item.listId
+
+  if @params.vote is 'down'
+    if list.downvotable
+      return item.downvote @user
+    else
+      return 403
   else
     [400, "'vote' must be either 'up' or 'down'"]
 
