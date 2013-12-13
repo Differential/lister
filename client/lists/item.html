@@ -1,6 +1,11 @@
 <template name='listItem'>
-  <a href='/{{username}}/{{slug}}' target="_blank">{{name}}</a>
+  <a href='/{{username}}/{{slug}}' target="_blank">
+    {{#if hidden}}
+      <i title="Hidden" class="icon-eye-close"></i>
+    {{/if}}
+    {{name}}
+  </a>
   {{#if isOwner}}
-    <a class='delete'><i class='icon-remove'></i></a>
+    <a title="Remove" class='delete'><i class='icon-remove'></i></a>
   {{/if}}
 </template>
