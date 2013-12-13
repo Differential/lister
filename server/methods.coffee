@@ -22,7 +22,7 @@ Meteor.startup ->
      item = Item.first(itemId)
 
      if not item
-       throw new Meteor.Error(422, 'Item not found')
+       throw new Meteor.Error(404, 'Item not found')
 
      item.upvote Meteor.user()
 

@@ -28,6 +28,25 @@ class @List extends Minimongoid
 
     @userId is user._id or @username is user.userName
 
+  canVote: (user) ->
+    if not user
+      return false
+
+    if not @limit
+      return true
+
+    voters = []
+    _.each @items(), (item) ->
+      voters.push(item.upvoters, item.downvoters)
+    voters = _.flatten voters
+
+    numVotes = _.filter(voters, (voter) ->
+      return voter is user._id
+    ).length
+
+    console.log numVotes
+    numVotes < @maxvotes
+
   canAddItem: (user) ->
     if not user
       return false

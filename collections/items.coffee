@@ -31,6 +31,9 @@ class @Item extends Minimongoid
 
     @userId isnt user._id
 
+  hasVoted: (user) ->
+    @hasUpvoted(user) or @hasDownvoted(user)
+
   hasUpvoted: (user) ->
     if not user
       return false
