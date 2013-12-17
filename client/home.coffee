@@ -9,17 +9,25 @@ Template.home.helpers
   lists: ->
     List.where({}, sort:{updatedAt:-1})
 
-  items: ->
-    Item.find()
+  searchItems: ->
+    regx = new RegExp(Session.get('query'), "i")
+    Item.find(text: regx)
+
+  searchItemsNum: ->
+    regx = new RegExp(Session.get('query'), "i")
+    Item.find(text: regx).count()
+
+  searchLists: ->
+    regx = new RegExp(Session.get('query'), "i")
+    console.log(List.find(name: regx).fetch())
+    List.find(name: regx)
+
+  searchListsNum: ->
+    regx = new RegExp(Session.get('query'), "i")
+    List.find(name: regx).count()
 
   query: ->
     Session.get('query')
-
-Template.home.events
-  'keyup #query': (event) ->
-    event.preventDefault()
-    query = $(event.target).val()
-    Session.set('query', query)
 
 Template.homeList.helpers
   mostRecentItemUser: ->
@@ -31,3 +39,5 @@ Template.homeList.helpers
     item = @mostRecentItem()
     if item
       item.text
+
+

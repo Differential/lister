@@ -1,25 +1,41 @@
 <template name='home'>
   <div class="home">
     <div class="container">
-      <div id="app-store">
-        <a href="https://itunes.apple.com/us/app/lister.io/id690202308"><img src="/app-store.png"></a>
-      </div>
-      <h1>Lister</h1>
-      <p class='subhead'>Easy public shareable lists.</p>
-      <div class='search'>
-        <input type="text" id="query" value="{{query}}" placeholder="Search">
+      {{#if query}}
+      <h3>Search Results</h3>
+      <h4 class='listItemResults'>{{searchItemsNum}} <strong>list items</strong> found</h4>
+      {{/if}}
+      <div class="listHdr">
+          <div class="listNameHdr">LIST NAME</div>
+          <div class="listItemHdr">
+            <a href=""><i class="icon-clock-o"></i> MOST RECENT ITEM</a>
+          </div>
       </div>
       <ul class='list home-list'>
         {{#if query}}
-          {{#each items}}
+          {{#each searchItems}}
             {{> homeItem}}
           {{/each}}
-         {{else}}
-           {{#each lists}}
-             {{> homeList}}
-           {{/each}}
-         {{/if}}
+        {{else}}
+          {{#each lists}}
+            {{listName}}
+            {{> homeList}}
+          {{/each}}
+        {{/if}}
       </ul>
+
+      {{#if query}}
+      <h4 class='listResults'>{{searchListsNum}} <strong>lists</strong> found</h4>
+      <div class="listHdr">
+          <div class="listNameHdr">LIST NAME</div>
+      </div>
+      <ul class='list home-list'>
+        {{#each searchLists}}
+          {{title}}
+        {{/each}}
+      </ul>
+      {{/if}}
     </div>
+
   </div>
 </template>

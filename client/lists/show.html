@@ -1,14 +1,17 @@
 <template name='showList'>
+
   {{#with list}}
   <div class="view-lists list">
     <div class="container">
       <div class="row-fluid">
         <div class="span12">
           <h2>
+            <a href="/"><i title="Back" class="backIcon icon-arrow-circle-left"></i></a>
             {{#if hidden}}
               <i title="Hidden" class="icon-eye-close"></i>
             {{/if}}
             {{list.name}}
+            <small class="username">{{list.username}}'s list</small>
           </h2>
           <ul class='list'>
             {{#each items}}

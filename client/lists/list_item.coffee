@@ -11,10 +11,21 @@ Template.item.helpers
   'isOwner': ->
     @isOwner Meteor.user()
 
+  'ownerClass': ->
+    if @isOwner Meteor.user()
+      return 'isOwner'
+
   'canVote': ->
     list = List.first @listId
     user = Meteor.user()
     @canVote(user) and (list.canVote(user) or @hasVoted(user))
+
+  'hideVote': ->
+    list = List.first @listId
+    user = Meteor.user()
+    canVote = @canVote(user) and (list.canVote(user) or @hasVoted(user))
+    if !canVote and user
+      'hidden'
 
   'onlyClass': ->
     list = List.first @listId

@@ -1,0 +1,32 @@
+<template name='header'>
+
+  <header class='{{homeClass}}'>
+    <div class="container">
+      <div class="row">
+        <div class="span5">
+          <div id="app-store">
+            <a href="https://itunes.apple.com/us/app/lister.io/id690202308"><img src="/app-store.png"></a>
+          </div>
+          <h1><a href="/">Lister</a></h1>
+          <p class='subhead'>Easy public shareable lists.</p>
+        </div>
+        <div class="span7 hdrUtils">
+          <div class="login">
+            {{loginButtons align="right"}}
+          </div>
+
+          {{#if isHome}}
+          <div class='search'>
+            <input type="text" id="query" value="{{query}}" placeholder="Search">
+          </div>
+          {{/if}}
+
+          {{#if currentUser}}
+          {{> nav}}
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </header>
+
+</template>
