@@ -548,6 +548,17 @@ footer {
       }
     }
   }
+  
+  .sp-replacer {
+    border: none;
+    background: none;
+  }
+  .sp-dd {
+    display: none;
+  }
+  .sp-preview {
+    border: none;
+  }
 
   input {
     padding: 3px;
@@ -561,6 +572,29 @@ footer {
     background: rgba(0,0,0,0.3);
     color: rgba(255,255,255,0.9);
   }
+}
+
+.sp-container {
+  border-radius: 3px 3px 0 0;
+  background-color: #FFFFFF;
+  border: solid 1px #FFFFFF;
+}
+.sp-palette-container {
+  padding: 5px;
+  padding-bottom: 295px;
+  border-right: 0;
+}
+.sp-palette .sp-thumb-el {
+  border: solid 1px #FFFFFF;
+}
+.sp-palette .sp-thumb-el:hover {
+  border-color: #646464;
+}
+.sp-palette .sp-thumb-el.sp-thumb-active {
+  border-color: #555;
+}
+.sp-palette .sp-thumb-light.sp-thumb-active .sp-thumb-inner {
+  background-image: none;
 }
 
 .muted {
