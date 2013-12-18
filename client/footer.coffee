@@ -1,4 +1,4 @@
-Template.item.rendered = ()->
+Template.footer.rendered = ()->
   $("input.color").show().spectrum({
     showPaletteOnly: true,
     showPalette:true,

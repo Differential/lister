@@ -1,13 +1,11 @@
 Template.item.rendered = ->
   $('body').css('background-color', Session.get('color'))
-  $(this.firstNode).find('.score a').tooltip
+  $(this.find('.score a')).tooltip
     html: true
     container: 'body'
-  img = $(this.firstNode).find('.itemImg')
+  img = $(this.find('.itemImg'))
   if img.length
-    img
-      .imageMaxSize({width: 200, height: 200})
-      .data('size', 'small')
+    img.imageMaxSize({width: 200, height: 200}).data('size', 'small')
 
 Template.item.helpers
   'isDownvotable': ->
