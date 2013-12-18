@@ -16,8 +16,10 @@ Template.showList.helpers
     !Meteor.user() && @open
 
 Template.showList.events
-  'submit .add-item': (event) ->
+  'submit .add-item, keyup form.add-item': (event) ->
     event.preventDefault()
+    unless event.type is 'keyup' and event.ctrlKey and event.keyCode is 13
+      return
 
     item = Item.create
       userId: Meteor.userId()
