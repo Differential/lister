@@ -7,7 +7,11 @@ Template.listsIndex.helpers
 
   lists: ->
     if Session.get('username')
-      List.where(username: Session.get('username'))
+      List.where
+        username: Session.get('username')
+      ,
+        sort:
+          updatedAt: -1
     else
       List.where(userId: Meteor.userId())
 
@@ -18,7 +22,12 @@ Template.listsIndex.helpers
       List.find(userId: Meteor.userId()).count() > 0
 
   contributedLists: ->
-    List.where(userId: { $ne: Meteor.userId() })
+    List.where
+      userId:
+        $ne: Meteor.userId()
+    ,
+      sort:
+        updatedAt: -1
 
   hasContributedToLists: ->
     List.find(userId: { $ne: Meteor.userId() }).count() > 0
