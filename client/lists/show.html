@@ -10,8 +10,8 @@
             {{#if hidden}}
               <i title="Hidden" class="icon-eye-close"></i>
             {{/if}}
-            {{list.name}}
-            <small class="username">{{list.username}}'s list</small>
+            {{name}}
+            <small class="username">{{username}}'s list</small>
           </h2>
           <ul class='list'>
             {{#each items}}
@@ -26,7 +26,7 @@
                 <p>Add an item to this list</p>
                 <div class='controls control-row'>
                   <textarea type="text" class="span12" placeholder='text' id="text" />
-                  <input type="text" class="span10" placeholder='url (optional)' id="url">
+                  <input type="text" class="span10" placeholder='link or img url (optional)' id="url">
                   <button type='submit' class='btn btn-inverse span2'>Add</button>
                 </div>
               </form>

@@ -1,7 +1,13 @@
 Template.item.rendered = ->
   $('body').css('background-color', Session.get('color'))
-  $('.score a').tooltip
+  $(this.firstNode).find('.score a').tooltip
     html: true
+    container: 'body'
+  img = $(this.firstNode).find('.itemImg')
+  if img.length
+    img
+      .imageMaxSize({width: 200, height: 200})
+      .data('size', 'small')
 
 Template.item.helpers
   'isDownvotable': ->
@@ -31,6 +37,11 @@ Template.item.helpers
     list = List.first @listId
     if not list.downvotable
       return 'only'
+
+  'urlIsImage': (url) ->
+    ext = url.substring(url.lastIndexOf('.'))
+    ext in ['.png', '.jpg', '.gif']
+
 
   'upvoteClass': ->
     if @hasUpvoted Meteor.user()
@@ -65,3 +76,26 @@ Template.item.events
   'click .downvote': (event) ->
     event.preventDefault()
     Meteor.call('downvote', @id)
+
+  'click .imgHitArea': (event) ->
+    event.preventDefault();
+    targ = $(event.currentTarget)
+    img = targ.find('.itemImg')
+    icon = targ.find('.searchIcon')
+    if img.data('size') is 'small'
+      img
+        .imageMaxSize( {height: Math.min($(window).height(), 800)} )
+        .data('size', 'large')
+      icon
+        .removeClass('icon-search-plus')
+        .addClass('icon-search-minus')
+        .attr("title", "Shrink Image")
+    else
+      img
+        .imageMaxSize( {width: 200, height: 200} )
+        .data('size', 'small')
+      icon
+        .removeClass('icon-search-minus')
+        .addClass('icon-search-plus')
+        .attr("title", "Enlarge Image")
+

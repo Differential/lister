@@ -18,19 +18,27 @@
         {{/unless}}
       {{/if}}
     </p>
-    <p class='itemName'>
-      {{#if url}}
-        <a target="_blank" href="{{url}}">{{text}}</a>
-      {{else}}
-        {{text}}
-      {{/if}}
-    </p>
     <p class='addedBy'>
       <span>by </span>
       <a class='user-link' href="/{{itemUsername}}">{{itemUsername}}</a>
       <span class='created-at'>{{date createdAt}}</span>
       {{#if isOwner}}
         <a title="Remove" class='delete'><i class='icon-remove'></i></a>
+      {{/if}}
+    </p>
+    <p class='itemName'>
+      {{#if url}}
+        {{#if urlIsImage url}}
+          <span class="imgText">{{text}}</span>
+          <span class="imgHitArea">
+            <img class='itemImg' src="{{url}}" alt="{{text}}"/>
+            <i class='searchIcon icon-search-plus' title="Enlarge Image"></i>
+          </span>
+        {{else}}
+          <a target="_blank" href="{{url}}">{{text}}</a>
+        {{/if}}
+      {{else}}
+        {{text}}
       {{/if}}
     </p>
   </li>
