@@ -218,7 +218,7 @@ table.sub td {
 .listHdr {
   .clearfix();
   background-color: @accentBgColor;
-  padding: 5px 20px;
+  padding: 5px 15px;
   font-size: 16px;
   font-weight: 600;
   margin-top: 20px;
@@ -234,30 +234,22 @@ table.sub td {
   }
 }
 
-@paddingSm: 9%;
-@paddingMed: 7%;
-@paddingLrg: 6%;
-
 ul.list {
   list-style: none;
   margin: 0px auto 120px;
   li {
     clear: both;
     line-height: 30px;
-    padding: 1.5%;
+    padding: 15px;
     position: relative;
     overflow: hidden;
+    margin-top: -1px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-left-color: rgba(0,0,0,0.15);
+    border-right-color: rgba(0,0,0,0.15);
 
     &.list-item {
-      @media (max-width: 600px) {
-        padding-left: @paddingSm;
-      }
-      @media (min-width: 601px) {
-        padding-left: @paddingMed;
-      }
-      @media (min-width: 980px) {
-        padding-left: @paddingLrg;
-      }
+      padding-left: 67px;
 
       &.isOwner {
         padding-right: 0;
@@ -297,9 +289,12 @@ ul.list {
     }
     .delete {
       cursor: pointer;
-      //background: rgba(0,0,0,0.1);
       opacity: .8;
-      padding: 22px 10px 23px;
+      padding: 18px 10px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
 
       &:hover {
         background: red;
@@ -340,29 +335,23 @@ ul.list {
       color: rgba(0,0,0,0.4);
     }
     p.score {
-      @media (max-width: 600px) {
-        margin-left: -@paddingSm;
-      }
-      @media (min-width: 601px) {
-        margin-left: -@paddingMed;
-      }
-      @media (min-width: 980px) {
-        margin-left: -@paddingLrg;
-      }
       text-align: center;
       float: left;
-      background: rgba(0,0,0,0.05);
-      padding: 1.5% 2%;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 15px 0;
       position: absolute;
       top: 0;
       bottom: 0;
+      width: 55px;
+      margin-left: -67px;
+      border-right: 1px solid rgba(0, 0, 0, 0.05);
     }
     p.actions {
-      width: 2%;
+      width: 18px;
       text-align: center;
       font-size: 16px;
       line-height: 20px;
-      margin-right: 1%;
+      margin-right: 10px;
       margin-top: -4px;
       float: left;
       a.delete {
@@ -374,17 +363,18 @@ ul.list {
       float: right;
       text-align: right;
       font-size: 18px;
-      //width: 33%;
+      padding-right: 33px;
 
       @media (max-width: 600px) {
         float: left;
         clear: left;
         text-align: left;
+        margin-left: 30px;
       }
     }
     &:nth-child(2n+0) {
       background: @accentBgColor;
-      .box-shadow(~'inset 0px 3px 5px rgba(0,0,0,0.05)');
+      .box-shadow(~'inset 0px 3px 5px rgba(0,0,0,0.07)');
       p.score {
         background: rgba(0,0,0,0.05);
       }
