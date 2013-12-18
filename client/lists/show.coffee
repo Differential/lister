@@ -18,7 +18,7 @@ Template.showList.helpers
 Template.showList.events
   'submit .add-item, keyup form.add-item': (event) ->
     event.preventDefault()
-    unless event.type is 'keyup' and event.ctrlKey and event.keyCode is 13
+    unless event.type is 'submit' or event.type is 'keyup' and event.ctrlKey and event.keyCode is 13
       return
 
     item = Item.create
