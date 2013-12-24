@@ -2,7 +2,7 @@ Router.map ->
   @route 'home',
     path: '/'
     waitOn: -> [
-      Meteor.subscribe 'recentLists', Session.get('query')
+      Meteor.subscribe 'recentLists'
       Meteor.subscribe 'recentItems'
     ]
     before: ->

@@ -5,18 +5,6 @@ Deps.autorun ->
 
   if Meteor.user() && Meteor.user().profile && Meteor.user().profile.color
     Session.set('color', Meteor.user().profile.color)
-  else
-
-Template.header.helpers
-  homeClass: ->
-    'home' if document.location.pathname == "/"
-
-  isHome: ->
-    document.location.pathname == "/"
-
-Template.header.helpers
-  query: ->
-    Session.get('query')
 
 Template.header.events
   'keyup #query': (event) ->
@@ -25,6 +13,8 @@ Template.header.events
     query = $(event.target).val()
     Session.set('query', query)
 
-Template.nav.helpers
-  homeClass: ->
+Handlebars.registerHelper 'homeClass', () ->
     'home' if document.location.pathname == "/"
+
+Handlebars.registerHelper 'isHome', () ->
+    document.location.pathname == "/"
