@@ -1,14 +1,17 @@
 <template name='showList'>
+
   {{#with list}}
   <div class="view-lists list">
     <div class="container">
       <div class="row-fluid">
         <div class="span12">
           <h2>
+            <a href="/"><i title="Back" class="backIcon icon-arrow-circle-left"></i></a>
             {{#if hidden}}
               <i title="Hidden" class="icon-eye-close"></i>
             {{/if}}
-            {{list.name}}
+            {{this.name}}
+            <small class="username">{{this.username}}'s list</small>
           </h2>
           <ul class='list'>
             {{#each items}}
@@ -23,8 +26,8 @@
                 <p>Add an item to this list</p>
                 <div class='controls control-row'>
                   <textarea type="text" class="span12" placeholder='text' id="text" />
-                  <input type="text" class="span10" placeholder='url (optional)' id="url">
-                  <button type='submit' class='btn btn-inverse span2'>Add</button>
+                  <input type="text" class="span10" placeholder='link or img url (optional)' id="url">
+                  <button type='submit' class='add-btn span2'>Add</button>
                 </div>
               </form>
             {{/if}}

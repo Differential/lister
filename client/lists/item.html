@@ -5,7 +5,9 @@
     {{/if}}
     {{name}}
   </a>
-  {{#if isOwner}}
-    <a title="Remove" class='delete'><i class='icon-remove'></i></a>
-  {{/if}}
+  <p class='addedBy'>
+    {{#if isOwner}}
+      <a title="Remove" class='delete'><i class='icon-remove'></i></a>
+    {{/if}}
+  </p>
 </template>

@@ -5,23 +5,28 @@ Template.home.rendered = ->
     $('#app-store a').css('top', '20px')
   , 1000
 
+  
 Template.home.helpers
   lists: ->
     List.where({}, sort:{updatedAt:-1})
 
-  items: ->
-    Item.find()
+  searchItems: ->
+    regx = new RegExp(Session.get('query'), "i") 
+    Item.where(text: regx)
 
-  query: ->
-    Session.get('query')
+  searchItemsNum: ->
+    regx = new RegExp(Session.get('query'), "i") 
+    Item.find(text: regx).count()
 
-Template.home.events
-  'keyup #query': (event) ->
-    event.preventDefault()
-    query = $(event.target).val()
-    Session.set('query', query)
+  searchLists: ->
+    regx = new RegExp(Session.get('query'), "i") 
+    List.where(name: regx)
 
-Template.homeList.helpers
+  searchListsNum: ->
+    regx = new RegExp(Session.get('query'), "i") 
+    List.find(name: regx).count()
+
+Template.homeListRow.helpers
   mostRecentItemUser: ->
     item = @mostRecentItem()
     if item
@@ -31,3 +36,17 @@ Template.homeList.helpers
     item = @mostRecentItem()
     if item
       item.text
+    
+Handlebars.registerHelper 'highlightQuery', (str) ->
+    q = Session.get('query').toLowerCase()
+    ql = q.length
+    index = str.toLowerCase().indexOf(q)
+    pre = str.substring(0, index)
+    match = str.substr(index, ql)
+    post = str.substring(index + ql)
+    pre + "<span class='highlight'>#{match}</span>" + post
+    
+Handlebars.registerHelper 'query', () ->
+    Session.get('query')
+
+

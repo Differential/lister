@@ -1,25 +1,88 @@
 <template name='home'>
   <div class="home">
-    <div class="container">
-      <div id="app-store">
-        <a href="https://itunes.apple.com/us/app/lister.io/id690202308"><img src="/app-store.png"></a>
-      </div>
-      <h1>Lister</h1>
-      <p class='subhead'>Easy public shareable lists.</p>
-      <div class='search'>
-        <input type="text" id="query" value="{{query}}" placeholder="Search">
-      </div>
-      <ul class='list home-list'>
-        {{#if query}}
-          {{#each items}}
-            {{> homeItem}}
+    <div class="container listContainer {{#if query}}query{{/if}}">
+      
+      {{#unless query}}
+        {{> homeListHdr}}
+        <ul class='list home-list'>
+          {{#each lists}}
+            {{> homeListRow}}
           {{/each}}
-         {{else}}
-           {{#each lists}}
-             {{> homeList}}
-           {{/each}}
-         {{/if}}
-      </ul>
+        </ul>
+      {{/unless}}
+      
+      {{#if query}}      
+        <h3>Search Results</h3> 
+      
+        {{#if searchItemsNum}}
+          <h4 class='listItemResults'>{{searchItemsNum}} <strong>list items</strong> found</h4>
+          {{> homeItemsHdr}}
+          <ul class='list home-list'>
+            {{#each searchItems}}
+              {{> homeItemRow}}
+            {{/each}}
+          </ul>
+        {{/if}}
+
+        {{#if searchListsNum}}
+          <h4 class='listResults'>{{searchListsNum}} <strong>lists</strong> found</h4>
+          {{> homeListHdr}}
+          <ul class='list home-list'>
+            {{#each searchLists}}
+              {{> homeListRow}}
+            {{/each}}
+          </ul>
+        {{/if}}
+
+      {{/if}}
+    </div>
+
+  </div>
+</template>
+
+<template name='homeListHdr'>
+  <div class="listHdr">
+    <div class="listNameHdr">LIST NAME</div>
+    <div class="listItemHdr">
+      <i class="icon-clock-o"></i> MOST RECENT ITEM
     </div>
   </div>
+</template>
+
+<template name='homeItemsHdr'>
+  <div class="listHdr">
+    <div class="listNameHdr">ITEM</div>
+    <div class="listItemHdr">
+      <i class="icon-list"></i> FROM LIST
+    </div>
+  </div>
+</template>
+
+<template name='homeListRow'>
+  {{#if mostRecentItemUser}}
+    <li>
+      <p class='listName'><a href='/{{username}}/{{slug}}'>{{#if query}} {{{highlightQuery name}}} {{else}} {{name}} {{/if}}</a> <span class='listItemNum'>({{items.length}})</span></p>
+      <p class='text'>
+        <a href='/{{username}}/{{slug}}'>{{mostRecentItemText}}</a>
+        <span class='whoAdded'> by </span>
+        <a class='whoAdded' href='/{{mostRecentItem.username}}'>{{mostRecentItemUser}}</a>
+      </p>
+      <p class='whenAdded'>
+        {{date updatedAt}}
+      </p>
+    </li>
+  {{/if}}
+</template>
+
+<template name='homeItemRow'>
+  <li class="searchItem">
+    <p class='text'>
+      <a href='/{{username}}/{{listSlug}}'>{{{highlightQuery text}}}</a>
+    </p>
+    <p class='listName'><a href='/{{username}}/{{listSlug}}'>{{listName}}</a></p>
+    <p class='whenAdded'>
+      {{date createdAt}}
+      by <a href='/{{itemUsername}}'>{{itemUsername}}</a>
+    </p>
+  </li>
 </template>

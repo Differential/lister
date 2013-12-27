@@ -1,38 +1,45 @@
 <template name='item'>
-  <li>
+  <li class='list-item {{ownerClass}}'>
     <p class='score'>
       <a href="javascript:void(0);"{{#if voters}} data-toggle="tooltip" title="{{voters}}"{{/if}}>{{score}}</a>
     </p>
-    <p class='actions'>
+    <p class='actions {{hideVote}}'>
       {{#if canVote}}
         <a title="Upvote" class='upvote {{upvoteClass}}'><i class='{{onlyClass}} icon-arrow-up muted'></i></a>
         {{#if isDownvotable}}
           <a title="Downvote" class='downvote {{downvoteClass}}'><i class='icon-arrow-down muted'></i></a>
         {{/if}}
       {{else}}
-        {{#if currentUser}}
-          &nbsp;
-        {{else}}
+        {{#unless currentUser}}
           <i title="Upvote" class='{{onlyClass}} icon-arrow-up muted'></i>
           {{#if isDownvotable}}
             <i title="Downvote" class='icon-arrow-down muted'></i>
           {{/if}}
-        {{/if}}
+        {{/unless}}
       {{/if}}
     </p>
-    <p class='text'>
+    <p class='itemName'>
       {{#if url}}
-        <a target="_blank" href="{{url}}">{{text}}</a>
+        {{#if urlIsImage url}}
+          <span class="imgText">{{text}}</span>
+          <span class="imgHitArea">
+            <i class='searchIcon icon-search-plus' title="Enlarge Image"></i>
+            <img class='itemImg' src="{{url}}" alt="{{text}}"/>
+          </span>
+        {{else}}
+          <a target="_blank" href="{{url}}">{{text}}</a>
+        {{/if}}
       {{else}}
         {{text}}
       {{/if}}
+    </p>
+    <p class='addedBy'>
+      <span>by </span>
+      <a class='user-link' href="/{{itemUsername}}">{{itemUsername}}</a>
+      <span class='created-at'>{{date createdAt}}</span>
       {{#if isOwner}}
         <a title="Remove" class='delete'><i class='icon-remove'></i></a>
       {{/if}}
-    </p>
-    <p class='addedBy'>
-      {{date createdAt}}
-      by <a class='user-link' href="/{{itemUsername}}">{{itemUsername}}</a>
     </p>
   </li>
 </template>

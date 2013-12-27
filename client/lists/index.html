@@ -1,18 +1,19 @@
 <template name='listsIndex'>
+
   <div class="view-lists list">
     <div class="container">
 
       <div class="row-fluid">
         <div class="span6 offset3">
           {{#if hasLists}}
-            {{#if username}}
-              <h2>{{username}}'s lists</h2>
-            {{else}}
+            {{#if isUser username}}
               <h2>My lists</h2>
+            {{else}}
+              <h2>{{username}}'s lists</h2>
             {{/if}}
             <ul class="list">
             {{#each lists}}
-              <li class="list-item">{{> listItem}}</li>
+              <li class="list-item isOwner">{{> listItem}}</li>
             {{/each}}
             </ul>
           {{else}}
@@ -29,10 +30,10 @@
       {{#if hasContributedToLists}}
         <div class="row-fluid">
           <div class="span6 offset3">
-            {{#if username}}
-              <h2>{{username}} has contributed to</h2>
-            {{else}}
+            {{#if isUser username}}
               <h2>Lists to which I've contributed</h2>
+            {{else}}
+              <h2>{{username}} has contributed to</h2>
             {{/if}}
 
             <ul class="list">

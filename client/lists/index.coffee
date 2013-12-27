@@ -32,6 +32,9 @@ Template.listsIndex.helpers
   hasContributedToLists: ->
     List.find(userId: { $ne: Meteor.userId() }).count() > 0
 
+  isUser: (un) ->
+    Meteor.user().username == un
+
 Template.listsIndex.events
   'click .addList': ->
     Router.go('/lists/new')
