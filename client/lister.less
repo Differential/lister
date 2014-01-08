@@ -46,15 +46,36 @@ code.full {
 
 header {
   background-color: rgba(255,255,255,.4);
-  padding-top: 30px;
-  padding-bottom: 40px;
-  margin-bottom: 30px;
   border-bottom: 1px solid rgba(255,255,255,.3);
 
+  @media (max-width: 767px) {
+    margin: 0 -20px 30px;
+    padding: 30px 20px 20px;
+  }
+  @media (min-width: 768px) {
+    padding-top: 30px;
+    padding-bottom: 40px;
+    margin-bottom: 30px;
+  }
 
   .search {
     margin-left: 5px;
     float: right;
+
+    @media (max-width: 767px) {
+      float: left;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 550px) {
+      margin: 20px 0 10px;
+      display: block;
+      float: none;
+
+      input {
+        width: 240px;
+      }
+    }
   }
 
   .login a,
@@ -62,9 +83,6 @@ header {
     color: #333;
     font-size: 20px;
     text-decoration: none !important;
-    @media (max-width: 480px) {
-      font-size: 1em;
-    }
     
     i[class^="icon-"], i[class*=" icon-"] {
       vertical-align: middle;
@@ -76,16 +94,27 @@ header {
     float: right;
     margin-top: 11px;
 
+    @media (max-width: 600px) {
+      float: left;
+    }
+
     &.home {
       position: absolute;
       bottom: 8px;
       right: 0;
       float: none;
       margin: 0;
+      @media (max-width: 550px) {
+        position: static;
+      }
     }
 
 
     ul {
+
+      @media (max-width: 600px) {
+        margin-left: 0;
+      }
 
       li {
         display: inline;
@@ -97,6 +126,11 @@ header {
           .box-shadow(~'1px 1px 1px rgba(0,0,0,0.1)');
           .transitionEase(top 0);
           .transitionEase(left 0);
+
+          @media (max-width: 767px) {
+            position: relative;
+            top: -3px;
+          }
 
           &:hover {
             background-color: rgba(255,255,255,0.9);
@@ -110,14 +144,24 @@ header {
             left: 1px;
           }
 
-          @media (max-width: 480px) {
-            font-size: 1em;
-          }
-
           i {
             font-size: 28px;
-            @media (max-width: 480px) {
-              font-size: 1.5em;
+
+            /*@media (max-width: 600px) {
+              font-size: 42px;
+            }*/
+            @media (max-width: 600px) {
+              font-size: 28px;
+            }
+          }
+
+          .nav-lbl{
+            /*@media (max-width: 600px) {
+              display: none;
+            }*/
+            @media (max-width: 600px) {
+              display: inline;
+              font-size: 18px;
             }
           }
         }
@@ -134,6 +178,11 @@ header {
     margin: 14px 0 0 30px;
     @media (max-width: 480px) {
       margin-top: 3px;
+    }
+    @media (max-width: 767px) {
+      position: absolute;
+      top: 0;
+      right: 0;
     }
   }
 
@@ -178,6 +227,7 @@ input[type='text'], textarea {
     margin-top: 20px;
     line-height: 100px;
     text-shadow: 0 2px 2px rgba(255,255,255,0.7), 0 -1px 0px rgba(0,0,0,0.8);
+    text-indent: -6px;
   }
 
   p {
@@ -212,6 +262,17 @@ input[type='text'], textarea {
     left: 245px;
     width: 100%;
     .rotate(10deg);
+
+    @media (max-width: 767px) {
+      margin-top: -20px;
+    }
+
+    @media (max-width: 575px) {
+      margin-top: -50px;
+      left: 0px;
+      width: 90%;
+      .rotate(-5deg);
+    }
   }
 }
 
@@ -243,6 +304,10 @@ table.sub td {
   }
   .listItemHdr {
     float: right;
+
+    @media (max-width: 700px) {
+      display: none;
+    }
   }
 
   i {
@@ -265,14 +330,6 @@ ul.list {
     border-left-color: rgba(0,0,0,0.15);
     border-right-color: rgba(0,0,0,0.15);
 
-    &.list-item {
-      padding-left: 67px;
-
-      &.isOwner {
-        padding-right: 0;
-      }
-    }
-
     p {
       font-size: 24px;
       line-height: 32px;
@@ -281,33 +338,29 @@ ul.list {
     }
     p.itemName {
       float: left;
-      
-      .imgText {
-        display: block;
-        font-size: 24px;
-        color: #333;
-        margin-bottom: 5px;
+
+      @media (min-width: 601px) {
+        margin-bottom: 15px;
+        width: 60%;
       }
-      .imgHitArea {
-        display: block;
-        position: relative;
-        cursor: pointer;
-      }
-      .itemImg {
-        margin-left: 24px;
-      }
-      .searchIcon {
-        position: absolute;
-        top: 0;
+      @media (max-width: 600px) {
+        width: 100%;
       }
     }
     p.text {
-      float: right;
+      display: none;
+
+      @media (min-width: 701px) {
+        display: block;
+        float: right;
+        width: 50%;
+        text-align: right;
+      }
     }
     .delete {
       cursor: pointer;
       opacity: .8;
-      padding: 15px 10px;
+      padding: 16px 10px;
       position: absolute;
       right: 0;
       top: 0;
@@ -327,8 +380,12 @@ ul.list {
       }
     }
     p.listName {
-      float: left;
       font-weight: 600;
+
+      @media (min-width: 701px) {
+        width: 50%;
+        float: left;
+      }
     }
     span.listItemNum {
       font-weight: 400;
@@ -338,6 +395,10 @@ ul.list {
     p.whenAdded {
       clear: right;
       float: right;
+
+      @media (max-width: 70px) {
+        float: left;
+      }
     }
     p.whenAdded,
     p.whoAdded,
@@ -353,40 +414,95 @@ ul.list {
     }
     p.score {
       text-align: center;
-      float: left;
       background: rgba(0, 0, 0, 0.05);
       padding: 15px 0;
+      width: 55px;
+      border-right: 1px solid rgba(0, 0, 0, 0.05);
       position: absolute;
       top: 0;
       bottom: 0;
-      width: 55px;
-      margin-left: -67px;
-      border-right: 1px solid rgba(0, 0, 0, 0.05);
+      left: 0;
     }
     p.actions {
-      width: 18px;
       text-align: center;
       font-size: 16px;
       line-height: 20px;
-      margin-right: 10px;
-      margin-top: -4px;
-      float: left;
-      a.delete {
-        font-size: 24px;
-        line-height: 40px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 30px;
+      left: 56px;
+      background-color: rgba(255,255,255,.08);
+      border-right: 1px solid rgba(0,0,0,0.1);
+
+      a {
+        background: rgba(255, 255, 255, 0.15);
+        position: absolute;
+        padding: 0;
+        right: 0;
+        width: 100%;
+        height: 32px;
+        left: -1px;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+
+        &.upvote {
+          top: 0;
+        }
+        &.downvote {
+          top: 33px;
+        }
+        i {
+          color: rgba(0,0,0,.5);
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin-top: -9px;
+          margin-left: -7px;
+        }
+        &.voted, &:hover {
+          background: rgba(255,255,255,.5);
+          border: 1px solid rgba(0,0,0,0.5);
+          i {
+            color: rgba(0,0,0,0.8) !important;
+          }
+        }
+        &:active {
+          background: rgba(255,255,255,.3);
+          border: 1px solid rgba(0,0,0,0.3);
+          i {
+            color: rgba(0,0,0,0.6) !important;
+          }
+        }
       }
+    }
+    .itemContent {
+      padding: 15px;
+      padding-left: 105px;
+      padding-bottom: 0;
     }
     p.addedBy {
       float: right;
       text-align: right;
       font-size: 18px;
-      padding-right: 40px;
+      width: 40%;
 
       @media (max-width: 600px) {
         float: left;
         clear: left;
         text-align: left;
-        margin-left: 30px;
+        margin-bottom: 15px;
+        width: 100%;
+      }
+    }
+    .imgHitArea {
+      cursor: pointer;
+      clear: left;
+      float: left;
+      margin: 10px 0;
+
+      i {
+        float: left;
+        padding: 0 10px 10px 0;
       }
     }
     &:nth-child(2n+0) {
@@ -402,13 +518,32 @@ ul.list {
       p.text {
         float: left;
         font-weight: 600;
+        text-align: left;
+        display: block;
       }
       p.whenAdded {
+        clear: left;
         float: left;
       }
       p.listName {
         float: right;
         font-weight: 400;
+        text-align: right;
+
+        @media (max-width: 700px) {
+          display: none;
+        }
+      }
+    }
+
+    &.list-item {
+      min-height: 66px;
+      padding: 0;
+    }
+
+    &.isOwner {
+      .itemContent {
+        padding-right: 40px;
       }
     }
   }
@@ -416,8 +551,35 @@ ul.list {
 
 
 h3.share-list {
-    text-align: center;
+  text-align: center;
+}
+
+.view-lists h2 {
+  margin: 0 auto 15px;
+  padding: 0;
+  font-size: 26px;
+}
+
+.lists-index {
+  h2 {
+    margin: 0px auto 10px;
+    position: relative;
+
+    a {
+      position: absolute;
+      left: 0;
+    }
   }
+  .list-title-text {
+    padding-left: 50px;
+    margin-bottom: 10px;
+  }
+  .username {
+    display: block;
+    margin-left: 50px;
+    color: rgba(0,0,0,0.5);
+  }
+}
 
 .list {
 
@@ -436,11 +598,6 @@ h3.share-list {
         opacity: 0.75;
       }
     }
-    .username {
-      display: block;
-      margin-left: 62px;
-      color: rgba(0,0,0,0.5);
-    }
   }
 
   ul.list {
@@ -456,10 +613,6 @@ h3.share-list {
           text-decoration: none;
         }
       }
-      a.voted i {
-        color: rgba(0,0,0,0.8) !important;
-      }
-
       a.vote:hover {
         opacity: 1 !important;
         i {
@@ -521,7 +674,7 @@ h3.share-list {
 
 div.share {
   text-align: center;
-  margin: 40px 0;
+  margin: 40px 0 100px;
   a {
     background: rgba(0,0,0,0.15);
   }
@@ -565,6 +718,10 @@ footer {
   .navbar {
     padding: 10px 0;
     background-color: rgba(255,255,255,1.0);
+
+    @media (max-width: 979px){
+      padding: 10px 20px;
+    }
   }
 
   ul {
@@ -594,16 +751,36 @@ footer {
       }
     }
   }
-  
+
+  @media (max-width: 500px) {
+    ul {
+      float: left;
+
+      li {
+        display: block;
+        padding-left: 5px;
+      }
+    }
+  }
+
   .sp-replacer {
     border: none;
     background: none;
+
+    @media (max-width: 500px) {
+      float: left;
+    }
   }
   .sp-dd {
     display: none;
   }
   .sp-preview {
     border: none;
+
+    @media (max-width: 500px) {
+      width: 35px;
+      height: 55px;
+    }
   }
 
   input {
@@ -624,6 +801,11 @@ footer {
   background-color: #FFFFFF;
   border: solid 1px #FFFFFF;
 }
+.sp-palette {
+  @media (max-width: 500px) {
+    max-width: 240px;
+  }
+}
 .sp-palette-container {
   padding: 5px;
   padding-bottom: 295px;
@@ -631,6 +813,12 @@ footer {
 }
 .sp-palette .sp-thumb-el {
   border: solid 1px #FFFFFF;
+
+  @media (max-width: 500px) {
+    width: 24px;
+    height: 55px;
+    margin: 2px 1px;
+  }
 }
 .sp-palette .sp-thumb-el:hover {
   border-color: #646464;

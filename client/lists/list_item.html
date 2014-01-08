@@ -1,45 +1,62 @@
 <template name='item'>
   <li class='list-item {{ownerClass}}'>
+
+    <!-- SCORE -->
     <p class='score'>
       <a href="javascript:void(0);"{{#if voters}} data-toggle="tooltip" title="{{voters}}"{{/if}}>{{score}}</a>
     </p>
-    <p class='actions {{hideVote}}'>
+
+    <!-- ACTIONS -->
+    <p class='actions'>
       {{#if canVote}}
-        <a title="Upvote" class='upvote {{upvoteClass}}'><i class='{{onlyClass}} icon-arrow-up muted'></i></a>
+        <a title="Upvote" class='upvote {{upvoteClass}} {{hideVote}}'><i class='{{onlyClass}} icon-arrow-up'></i></a>
         {{#if isDownvotable}}
-          <a title="Downvote" class='downvote {{downvoteClass}}'><i class='icon-arrow-down muted'></i></a>
+        <a title="Downvote" class='downvote {{downvoteClass}} {{hideVote}}'><i class='icon-arrow-down'></i></a>
         {{/if}}
       {{else}}
         {{#unless currentUser}}
-          <i title="Upvote" class='{{onlyClass}} icon-arrow-up muted'></i>
+          <a title="Upvote" class='{{upvoteClass}} {{hideVote}}'><i class='{{onlyClass}} icon-arrow-up'></i></a>
           {{#if isDownvotable}}
-            <i title="Downvote" class='icon-arrow-down muted'></i>
+          <a title="Downvote" class='{{downvoteClass}} {{hideVote}}'><i class='icon-arrow-down'></i></a>
           {{/if}}
         {{/unless}}
       {{/if}}
     </p>
-    <p class='itemName'>
+
+    <div class="itemContent clearfix">
+
+      <!-- ITEM NAME-->
+      <p class='itemName'>
+        {{#if url}}
+          {{#if urlIsImage url}}
+            {{text}}
+          {{else}}
+            <a target="_blank" href="{{url}}">{{text}}</a>
+          {{/if}}
+        {{else}}
+          {{text}}
+        {{/if}}
+      </p>
+
+      <!-- ADDED BY-->
+      <p class='addedBy'>
+        <span>by </span>
+        <a class='user-link' href="/{{itemUsername}}">{{itemUsername}}</a>
+        <span class='created-at'>{{date createdAt}}</span>
+        {{#if isOwner}}
+        <a title="Remove" class='delete'><i class='icon-remove'></i></a>
+        {{/if}}
+      </p>
+
       {{#if url}}
         {{#if urlIsImage url}}
-          <span class="imgText">{{text}}</span>
-          <span class="imgHitArea">
+          <div class="imgHitArea">
             <i class='searchIcon icon-search-plus' title="Enlarge Image"></i>
             <img class='itemImg' src="{{url}}" alt="{{text}}"/>
-          </span>
-        {{else}}
-          <a target="_blank" href="{{url}}">{{text}}</a>
+          </div>
         {{/if}}
-      {{else}}
-        {{text}}
       {{/if}}
-    </p>
-    <p class='addedBy'>
-      <span>by </span>
-      <a class='user-link' href="/{{itemUsername}}">{{itemUsername}}</a>
-      <span class='created-at'>{{date createdAt}}</span>
-      {{#if isOwner}}
-        <a title="Remove" class='delete'><i class='icon-remove'></i></a>
-      {{/if}}
-    </p>
+
+    </div>
   </li>
 </template>

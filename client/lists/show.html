@@ -1,7 +1,7 @@
 <template name='showList'>
 
   {{#with list}}
-  <div class="view-lists list">
+  <div class="lists-index list">
     <div class="container">
       <div class="row-fluid">
         <div class="span12">
@@ -10,7 +10,7 @@
             {{#if hidden}}
               <i title="Hidden" class="icon-eye-close"></i>
             {{/if}}
-            {{this.name}}
+            <div class="list-title-text">{{this.name}}</div>
             <small class="username">{{this.username}}'s list</small>
           </h2>
           <ul class='list'>
