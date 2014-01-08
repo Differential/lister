@@ -67,9 +67,10 @@ header {
       margin-top: 30px;
     }
 
-    @media (max-width: 420px) {
+    @media (max-width: 550px) {
       margin: 20px 0 10px;
-      width: 100%;
+      display: block;
+      float: none;
 
       input {
         width: 240px;
@@ -93,13 +94,17 @@ header {
     float: right;
     margin-top: 11px;
 
+    @media (max-width: 600px) {
+      float: left;
+    }
+
     &.home {
       position: absolute;
       bottom: 8px;
       right: 0;
       float: none;
       margin: 0;
-      @media (max-width: 420px) {
+      @media (max-width: 550px) {
         position: static;
       }
     }
@@ -107,7 +112,7 @@ header {
 
     ul {
 
-      @media (max-width: 420px) {
+      @media (max-width: 600px) {
         margin-left: 0;
       }
 
@@ -122,10 +127,9 @@ header {
           .transitionEase(top 0);
           .transitionEase(left 0);
 
-          @media (max-width: 600px) {
-            padding: 15px 15px;
+          @media (max-width: 767px) {
             position: relative;
-            top: 4px;
+            top: -3px;
           }
 
           &:hover {
@@ -143,19 +147,19 @@ header {
           i {
             font-size: 28px;
 
-            @media (max-width: 600px) {
+            /*@media (max-width: 600px) {
               font-size: 42px;
-            }
-            @media (max-width: 420px) {
+            }*/
+            @media (max-width: 600px) {
               font-size: 28px;
             }
           }
 
           .nav-lbl{
-            @media (max-width: 600px) {
+            /*@media (max-width: 600px) {
               display: none;
-            }
-            @media (max-width: 420px) {
+            }*/
+            @media (max-width: 600px) {
               display: inline;
               font-size: 18px;
             }
