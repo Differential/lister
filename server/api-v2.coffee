@@ -68,6 +68,10 @@ RESTstop.add 'lists', { method: 'POST', require_login: true }, () ->
     username: @user.username
     name: decodeURIComponent @params.name
     open: !! @params.open
+    hidden: !! @params.hidden
+    downvotable: !! @params.downvotable
+    limit: !! @params.limit
+    maxvotes: @params.maxvotes
     createdAt: new Date()
     updatedAt: new Date()
 
