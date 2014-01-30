@@ -7,21 +7,14 @@
     </p>
 
     <!-- ACTIONS -->
+    {{#if canVote}}
     <p class='actions'>
-      {{#if canVote}}
         <a title="Upvote" class='upvote {{upvoteClass}} {{hideVote}}'><i class='{{onlyClass}} icon-arrow-up'></i></a>
         {{#if isDownvotable}}
         <a title="Downvote" class='downvote {{downvoteClass}} {{hideVote}}'><i class='icon-arrow-down'></i></a>
         {{/if}}
-      {{else}}
-        {{#unless currentUser}}
-          <a title="Upvote" class='{{upvoteClass}} {{hideVote}}'><i class='{{onlyClass}} icon-arrow-up'></i></a>
-          {{#if isDownvotable}}
-          <a title="Downvote" class='{{downvoteClass}} {{hideVote}}'><i class='icon-arrow-down'></i></a>
-          {{/if}}
-        {{/unless}}
-      {{/if}}
-    </p>
+      </p>
+    {{/if}}
 
     <div class="itemContent clearfix">
 
