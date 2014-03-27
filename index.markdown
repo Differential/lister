@@ -1,6 +1,6 @@
 ---
 layout: default
-username: BeDifferential
+username: Differential
 repo: lister
 version:
 desc: App for easy public sharable lists.
