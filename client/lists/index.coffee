@@ -36,7 +36,7 @@ Template.listsIndex.helpers
     Meteor.user().username == un
   
   hasFavorites: ->
-    List.find({favorited: Meteor.userId()}).count() > 0
+    List.find({ favorited: Meteor.userId() }).count() > 0
 
   favorites: ->
     List.where({ favorited: Meteor.userId() })
