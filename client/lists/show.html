@@ -10,7 +10,16 @@
             {{#if hidden}}
               <i title="Hidden" class="icon-eye-close"></i>
             {{/if}}
-            <div class="list-title-text">{{this.name}}</div>
+            <div class="list-title-text">
+              {{this.name}} 
+              <a href="#" class="for-favorite">
+              {{#unless isFavorited this}}
+                <i class="icon-star-empty"></i>
+              {{else}}
+                <i class="icon-star"></i>
+              {{/unless}}
+              </a>
+            </div>
             <small class="username">{{this.username}}'s list</small>
           </h2>
           <ul class='list'>
