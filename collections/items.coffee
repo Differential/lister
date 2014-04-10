@@ -78,13 +78,25 @@ class @Item extends Minimongoid
 
 Item._collection.allow(
   insert: (userId, item) ->
-    list = List.first(item.listId)
+    list = List.first item.listId
 
-    userId && list && (list.userId == userId || list.open)
+    userId and list and (list.userId is userId or list.open)
 
-  update: (userId, item) ->
-    true
+  update: (userId, item, fields) ->
+    # 1. User owns this item
+    if userId is item.userId
+      return true
+
+    # 2. User owns this list
+    list = List.first item.listId
+    userId and list and (list.userId == userId)
 
   remove: (userId, item) ->
-    true
+    # 1. User owns this item
+    if userId is item.userId
+      return true
+
+    # 2. User owns this list
+    list = List.first item.listId
+    userId and list and (list.userId == userId)
 )
