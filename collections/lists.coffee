@@ -70,7 +70,13 @@ List._collection.allow(
   insert: (userId, list) ->
     userId
 
-  update: (userId, list) ->
+  update: (userId, list, fields, query) ->
+    if query.$addToSet and query.$addToSet.favorited is userId
+      return true
+
+    if query.$pull and query.$pull.favorited is userId
+      return true
+
     list.userId == userId
 
   remove: (userId, list) ->
