@@ -34,6 +34,13 @@ Template.listsIndex.helpers
 
   isUser: (un) ->
     Meteor.user().username == un
+  
+  hasFavorites: ->
+    List.find({ favorited: Meteor.userId() }).count() > 0
+
+  favorites: ->
+    List.where({ favorited: Meteor.userId() })
+      
 
 Template.listsIndex.events
   'click .addList': ->

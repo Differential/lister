@@ -15,7 +15,19 @@ Template.showList.helpers
   couldAdd: ->
     !Meteor.user() && @open
 
+  isFavorited: (list) ->
+    _.contains(list.favorited, Meteor.userId())
+
 Template.showList.events
+  'click .for-favorite': (event) ->
+    event.preventDefault()
+    if @favorited and _.contains(@favorited, Meteor.userId())
+      @pull
+        favorited: Meteor.userId()    
+    else
+      @push 
+        favorited: Meteor.userId()
+
   'submit .add-item, keyup form.add-item': (event) ->
     event.preventDefault()
     unless event.type is 'submit' or event.type is 'keyup' and event.ctrlKey and event.keyCode is 13
