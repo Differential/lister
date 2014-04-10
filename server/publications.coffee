@@ -10,6 +10,12 @@ Meteor.publish 'lists', (username) ->
 
   List.find parms
 
+Meteor.publish 'favoritedLists', ->
+  if @userId
+    return List.find favorited: @userId
+
+  @ready()
+
 Meteor.publish 'contributedLists', (username) ->
   items = Item.find({itemUsername: username}).fetch()
 

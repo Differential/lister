@@ -19,6 +19,7 @@ Router.map ->
     waitOn: -> [
       Meteor.subscribe 'lists', Session.get('username')
       Meteor.subscribe 'contributedLists', Session.get('username')
+      Meteor.subscribe 'favoritedLists'
     ]
     before: ->
       if Meteor.loggingIn()
