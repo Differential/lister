@@ -3,17 +3,19 @@
   <div class="view-lists list">
     <div class="container">
 
-      {{#if hasFavorites}}
-        <div class="row-fluid">
-          <div class="span6 offset3">
-            <h2>Favorited lists</h2>
-            <ul class="list">
-              {{#each favorites}}
-                <li class="index-list-item isOwner">{{> listItem}}</li>
-              {{/each}}
-            </ul>
+      {{#if isUser username}}
+        {{#if hasFavorites}}
+          <div class="row-fluid">
+            <div class="span6 offset3">
+              <h2>Favorited lists</h2>
+              <ul class="list">
+                {{#each favorites}}
+                  <li class="index-list-item isOwner">{{> listItem}}</li>
+                {{/each}}
+              </ul>
+            </div>
           </div>
-        </div>
+        {{/if}}
       {{/if}}
 
       <div class="row-fluid">

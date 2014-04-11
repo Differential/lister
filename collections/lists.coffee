@@ -44,7 +44,6 @@ class @List extends Minimongoid
       return voter is user._id
     ).length
 
-    console.log numVotes
     numVotes < @maxvotes
 
   canAddItem: (user) ->
