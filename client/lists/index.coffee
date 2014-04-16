@@ -33,7 +33,7 @@ Template.listsIndex.helpers
     List.find(userId: { $ne: Meteor.userId() }).count() > 0
 
   isUser: (un) ->
-    Meteor.user().username == un
+    Meteor.user() and Meteor.user().username is un
   
   hasFavorites: ->
     List.find({ favorited: Meteor.userId() }).count() > 0
