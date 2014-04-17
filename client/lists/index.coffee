@@ -17,9 +17,9 @@ Template.listsIndex.helpers
 
   hasLists: ->
     if Session.get('username')
-      List.find(username: Session.get('username')).count() > 0
+      List.count(username: Session.get('username')) > 0
     else
-      List.find(userId: Meteor.userId()).count() > 0
+      List.count(userId: Meteor.userId()) > 0
 
   contributedLists: ->
     List.where
@@ -31,13 +31,13 @@ Template.listsIndex.helpers
         updatedAt: -1
 
   hasContributedToLists: ->
-    List.find({ contributed: true, userId: { $ne: Meteor.userId() }}).count() > 0
+    List.count({ contributed: true, userId: { $ne: Meteor.userId() }}) > 0
 
   isUser: (un) ->
     Meteor.user() and Meteor.user().username is un
   
   hasFavorites: ->
-    List.find({ favorited: Meteor.userId() }).count() > 0
+    List.count({ favorited: Meteor.userId() }) > 0
 
   favorites: ->
     List.where({ favorited: Meteor.userId() })

@@ -17,7 +17,7 @@ Meteor.publish 'favoritedLists', ->
   @ready()
 
 Meteor.publish 'contributedLists', (username) ->
-  items = Item.find({itemUsername: username}).fetch()
+  items = Item.where itemUsername: username
 
   listIds = _.uniq(_.pluck(items, 'listId'))
 
@@ -68,8 +68,22 @@ Meteor.publish 'voters', (listId) ->
 LIMIT = 20
 
 Meteor.publish 'recentLists', () ->
-  List.find({hidden: false}, {sort: {updatedAt: -1}, limit: LIMIT})
+  List.find
+    hidden: false
+  ,
+    sort: updatedAt: -1
+    limit: LIMIT
 
 Meteor.publish 'recentItems', () ->
-  ids = _.pluck(List.where({}, {sort: {updatedAt: -1}, limit: LIMIT, fields: {id: 1}}), 'id')
-  Item.find({listId: {$in: ids}})
+  ids = _.pluck(
+    List.where(
+      {}
+    ,
+      sort: updatedAt: -1
+      limit: LIMIT
+      fields: id: 1
+    )
+  , 'id')
+
+  Item.find
+    listId: $in: ids
