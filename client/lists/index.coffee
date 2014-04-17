@@ -23,6 +23,7 @@ Template.listsIndex.helpers
 
   contributedLists: ->
     List.where
+      contributed: true
       userId:
         $ne: Meteor.userId()
     ,
@@ -30,7 +31,7 @@ Template.listsIndex.helpers
         updatedAt: -1
 
   hasContributedToLists: ->
-    List.find(userId: { $ne: Meteor.userId() }).count() > 0
+    List.find({ contributed: true, userId: { $ne: Meteor.userId() }}).count() > 0
 
   isUser: (un) ->
     Meteor.user() and Meteor.user().username is un

@@ -31,7 +31,20 @@ Meteor.publish 'contributedLists', (username) ->
     if loggedIn is username
       delete parms.hidden
 
-  List.find parms
+  handle = List.find(parms).observeChanges
+    added: (id, fields) =>
+      fields.contributed = true
+      @added 'lists', id, fields
+
+    changed: (id, fields) =>
+      fields.contributed = true
+      @changed 'lists', id, fields
+
+    removed: (id, fields) =>
+      @removed 'lists', id
+
+  @ready()
+  @onStop -> handle.stop()
 
 Meteor.publish 'currentList', (listId) ->
   List.find
