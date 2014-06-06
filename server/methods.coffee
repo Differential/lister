@@ -8,10 +8,12 @@ Meteor.startup ->
      key
 
    findListId: (username, slug) ->
-     List.first(
-       username: username
-       slug: slug
-     ).id
+     list = List.first(username: username, slug: slug)
+     
+     if not list
+       throw new Meteor.Error(404, 'Item not found')
+
+     list.id
 
    upvote: (itemId) ->
      user = Meteor.user()
