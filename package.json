@@ -1,4 +1,7 @@
 {
   "name": "lister",
-  "mod-project-name": "lister"
+  "mod-project-name": "lister",
+  "scripts": {
+    "deploy": "~/node_modules/modulus/bin/modulus deploy"
+  }
 }
