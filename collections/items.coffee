@@ -83,6 +83,11 @@ Item._collection.allow(
     userId and list and (list.userId is userId or list.open)
 
   update: (userId, item, fields) ->
+    _fields = _ fields
+
+    if _fields.contains('userId') or _fields.contains('username')
+      return false
+
     # 1. User owns this item
     if userId is item.userId
       return true

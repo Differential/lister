@@ -70,10 +70,15 @@ List._collection.allow(
     userId
 
   update: (userId, list, fields, query) ->
-    if query.$addToSet and query.$addToSet.favorited is userId
+    _fields = _ fields
+
+    if _fields.contains('userId') or _fields.contains('username')
+      return false
+
+    if _fields.isEqual(['favorited']) and query.$addToSet and query.$addToSet.favorited is userId
       return true
 
-    if query.$pull and query.$pull.favorited is userId
+    if _fields.isEqual(['favorited']) and query.$pull and query.$pull.favorited is userId
       return true
 
     list.userId == userId
